@@ -1,5 +1,41 @@
 body 
 {
-    background-color: aqua;
-    color:brown;
+    background-image: linear-gradient(rgba(20,20,20,.8), rgba(20,20,20,.8)),url(../images/background.jpg);
+    color:white;
+    background-size: cover;
+}
+
+/*#logo
+{
+    margin:auto;
+    /*width:50%;*/
+    /*text-align: center;
+}*/
+
+.frontPage
+{
+    /*the top code alligns the div vertically and the bottom does it horizontally*/
+    
+    /*display: flex;*/
+    /*margin:auto;*/
+    /*width:50%;*/
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    position:absolute;
+    top:50%;
+    margin-top:-175px;
+
+    border: 0.05em solid red;
+    width:98%;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    
+}
+
+#logo, #slogan, #bottomButtons
+{
+    display: block; /* because <main/> is very new */
+    padding: 20px;
+    text-align: center;
 }
