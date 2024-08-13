@@ -1,3 +1,3 @@
 <?php
-require_once "D:/Code/VsGitProjects/pennyWatch/view/homePage_view.php";
+require_once "../view/homePage_view.php";
 ?>

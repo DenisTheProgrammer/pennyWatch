@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel = "stylesheet" type = "text/css" href ="../css/homePage_style.css">
     </head>
 
     <body>
@@ -13,11 +14,11 @@
         </div>
 
         <div id = "bottomButtons">
-            <form method = "post" action = "D:/Code/VsGitProjects/pennyWatch/controller/homePage_controller.php">
+            <form method = "post" action = "../controller/homePage_controller.php">
                 <input type = "submit" value = "Log In" name = "logIn" class = "button">
             </form>
 
-            <form method = "post" action = "D:/Code/VsGitProjects/pennyWatch/controller/homePage_controller.php">
+            <form method = "post" action = "../controller/homePage_controller.php">
                 <input type = "submit" value = "Sign Up" name = "signUp" class = "button">
             </form>
         </div>
