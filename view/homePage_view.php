@@ -16,11 +16,11 @@
             </div>
 
             <div id = "bottomButtons">
-                <form method = "post" action = "../controller/homePage_controller.php">
+                <form method = "post" action = "../controller/logIn_controller.php">
                     <input type = "submit" value = "Log In" name = "logIn" class = "button">
                 </form>
 
-                <form method = "post" action = "../controller/homePage_controller.php">
+                <form method = "post" action = "../controller/signUp_controller.php">
                     <input type = "submit" value = "Sign Up" name = "signUp" class = "button">
                 </form>
             </div>
