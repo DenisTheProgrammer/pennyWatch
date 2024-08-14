@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
         <link rel = "stylesheet" type = "text/css" href ="../css/homePage_style.css">
     </head>
 
     <body>
         <div class = "frontPage">
             <div id = "logo">
-                <p> LOGO GOES HERE</p>
+                <p> <img src="../images/logo.png" class = "logo"></p>
             </div>
 
             <div id = "slogan">
