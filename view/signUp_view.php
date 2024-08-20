@@ -27,6 +27,9 @@
             <input type="checkbox" id = "showConfirm">
             <label for="showConfirm">Show Password</label><br><br>
 
+            <label for="title">Title</label><br>
+            <input type="text" id = "title" name = "title"><br><br>
+
             <label for="firstName">First Name</label><br>
             <input type="text" id = "firstName" name = "firstName"><br><br>
 
