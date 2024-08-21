@@ -13,18 +13,18 @@
                 <h1>Log In</h1>
             </div>
             <div id = "details">
-                <form method = "post" action="logIn_controller.php">
+                <form name = "signInForm" method = "post" action="logIn_controller.php">
                     <label for="username">Username (Email)</label><br>
                     <input type="text" id = "username" name = "username"><br><br>
 
                     <label for="password">Password</label><br>
                     <input type="password" id = "password" name = "password"><br><br>
 
-                    <input type="checkbox" id = "showPassword">
+                    <input type="checkbox" id = "showPassword" onclick = passwordVisibility()>
                     <label for="showPassword">Show Password</label><br><br>
 
                 <div id = "bottomButtons">
-                        <input type= "submit" value = "Log In" name = "logIn" class = "button"><br><br>
+                        <input type= "submit" value = "Log In" name = "logIn" class = "button" onclick = handleDetails()><br><br>
                 </form>
                 <form method="post" action="signUp_controller.php">
                         <input type="submit" value = "Register" name = "register" class = "button" id = "regButton"><br><br>
