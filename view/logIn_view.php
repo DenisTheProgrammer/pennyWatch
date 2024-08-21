@@ -4,6 +4,7 @@
         <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/logInsignUpForm_style.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/logIn_style.css">
+        <script src="../javascript/logIn_script.js"></script>
     </head>
 
     <body>
@@ -22,11 +23,13 @@
                     <input type="checkbox" id = "showPassword">
                     <label for="showPassword">Show Password</label><br><br>
 
-                    <div id = "bottomButtons">
+                <div id = "bottomButtons">
                         <input type= "submit" value = "Log In" name = "logIn" class = "button"><br><br>
-                        <input type="submit" value = "Register" name = "register" class = "button"><br><br>
-                    </div>
                 </form>
+                <form method="post" action="signUp_controller.php">
+                        <input type="submit" value = "Register" name = "register" class = "button" id = "regButton"><br><br>
+                </form>
+                </div>
             </div>
         </div>
     </body>
