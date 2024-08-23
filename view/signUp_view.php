@@ -20,13 +20,13 @@
                 <label for="password">Password</label><br>
                 <input type="password" id = "password" name = "password"><br><br>
 
-                <input type="checkbox" id = "showPassword">
+                <input type="checkbox" id = "showPassword" onclick = passwordVisibility()>
                 <label for="showPassword">Show Password</label><br><br>
 
                 <label for="confirmPassword">Confirm Password</label><br>
                 <input type="password" id = "confirmPassword" name = "confirmPassword"><br><br>
 
-                <input type="checkbox" id = "showConfirm">
+                <input type="checkbox" id = "showConfirm" onclick = passwordVisibility()>
                 <label for="showConfirm">Show Password</label><br><br>
 
                 <label for="title">Title</label><br>
@@ -64,7 +64,7 @@
                 <input type="checkbox" id = "toc">
                 <label for="toc"><strong> I Accept Terms And Conditions</strong></label><br><br>
 
-                <input type="submit" value = "Confirm Details" name = "confirmDetails" class = "button">
+                <input type="submit" value = "Confirm Details" name = "confirmDetails" class = "button" id = "confirmDetails" onclick = handleDetails();checkTandC()>
             </form>
         </div>
     </div>

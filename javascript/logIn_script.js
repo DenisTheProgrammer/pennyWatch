@@ -1,11 +1,11 @@
 function handleDetails()
 {
-    var form = document.forms["signInForm"];
+    let form = document.forms["signInForm"];
 
     form.addEventListener("submit",function(event)
     {
-        var username = document.forms["signInForm"]["username"].value.trim(); //form.elements["nameOfElement"].value.trim() could also be used
-        var password = document.forms["signInForm"]["password"].value.trim();
+        let username = document.forms["signInForm"]["username"].value.trim(); //form.elements["nameOfElement"].value.trim() could also be used
+        let password = document.forms["signInForm"]["password"].value.trim();
 
         if(username === "")
         {
@@ -25,8 +25,8 @@ function handleDetails()
 //here I am going to handle the checkbox so that when it is checked the password is shown
 function passwordVisibility()
 {
-    var passwordField = document.getElementById("password");
-    var passwordCheck = document.getElementById("showPassword");
+    let passwordField = document.getElementById("password");
+    let passwordCheck = document.getElementById("showPassword");
 
     passwordCheck.addEventListener("change",function()
     {

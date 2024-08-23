@@ -1,21 +1,30 @@
 function handleDetails()
 {
-    var form = document.forms["signUpForm"];
+    let form = document.forms["signUpForm"];
 
     form.addEventListener("submit", function(event)
     {
-        var email = form.elements["email"].value.trim();
-        var password = form.elements["password"].value.trim();
-        var confirmPassword = form.elements["confirmPassword"].value.trim();
-        var title = form.elements["title"].value.trim();
-        var firstName = form.elements["firstName"].value.trim();
-        var surname = form.elements["surname"].value.trim();
-        var dob = form.elements["dob"].value.trim();
-        var country = form.elements["country"].value.trim();
-        var streetNo = form.elements["streetNo"].value.trim();
-        var streetName = form.elements["streetName"].value.trim();
-        var postcode = form.elements["postcode"].value.trim();
-        var phoneNo = form.elements["phoneNo"].value.trim();
+        let email = form.elements["email"].value.trim();
+        let password = form.elements["password"].value.trim();
+        let confirmPassword = form.elements["confirmPassword"].value.trim();
+        let title = form.elements["title"].value.trim();
+        let firstName = form.elements["firstName"].value.trim();
+        let surname = form.elements["surname"].value.trim();
+        let dob = form.elements["dob"].value.trim();
+        let country = form.elements["country"].value.trim();
+        let streetNo = form.elements["streetNo"].value.trim();
+        let streetName = form.elements["streetName"].value.trim();
+        let postcode = form.elements["postcode"].value.trim();
+        let phoneNo = form.elements["phoneNo"].value.trim();
+
+        let button = document.getElementById("confirmDetails");
+
+        //when testing I had an issue where the script would run twice when the button is clicked, this prevents that by disabling the button after it was clicked
+        button.addEventListener("click", function(event)
+        {
+            event.target.disabled = true;
+        });
+        //end of solve
 
         if(email === "")
         {
@@ -43,7 +52,7 @@ function handleDetails()
 
         if(firstName === "")
         {
-            alert("Please enter a firstName");
+            alert("Please enter a first name");
             event.preventDefault();
         }
 
@@ -73,7 +82,7 @@ function handleDetails()
 
         if(streetName === "")
         {
-            alert("Please enter a street number");
+            alert("Please enter a street name");
             event.preventDefault();
         }
 
@@ -86,6 +95,60 @@ function handleDetails()
         if(phoneNo == "")
         {
             alert("Please enter a phone number");
+            event.preventDefault();
+        }
+
+        button.addEventListener("click", function(event)
+        {
+            event.target.disabled = false;
+        });
+
+        //this temporarily fixes tho I believe it is maybe because the file submits to itself? so I am going to prevent that
+    });
+}
+
+function passwordVisibility()
+{
+    let passwordField = document.getElementById("password");
+    let passwordCheck = document.getElementById("showPassword");
+
+    let confirmPasswordField = document.getElementById("confirmPassword");
+    let confirmPasswordCheck = document.getElementById("showConfirm");
+
+    passwordCheck.addEventListener("change",function()
+    {
+        if(passwordCheck.checked)
+        {
+            passwordField.type = "text";
+        }
+        else
+        {
+            passwordField.type = "password";
+        }
+    });
+
+    confirmPasswordCheck.addEventListener("change", function()
+    {
+        if(confirmPasswordCheck.checked)
+        {
+            confirmPasswordField.type = "text";
+        }
+        else
+        {
+            confirmPasswordField.type = "password";
+        }
+    });
+}
+
+function checkTandC()
+{
+    let form = document.forms["signUpForm"];
+     form.addEventListener("submit",function(event)
+    {
+        let checkTandC = form.elements["toc"];
+        if(!checkTandC.checked)
+        {
+            alert("Please agree to the terms and conditions");
             event.preventDefault();
         }
     });
