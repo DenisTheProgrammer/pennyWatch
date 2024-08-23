@@ -1,4 +1,9 @@
-function handleDetails()
+window.onload = function() 
+{
+    handleInput();
+}
+
+function handleInput()
 {
     let form = document.forms["signInForm"];
 
@@ -18,9 +23,10 @@ function handleDetails()
             alert("Please enter a valid password");
             event.preventDefault();
         }
-    });
 
+    });
 }
+
 
 //here I am going to handle the checkbox so that when it is checked the password is shown
 function passwordVisibility()

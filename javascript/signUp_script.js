@@ -1,3 +1,9 @@
+window.onload = function() 
+{
+    handleDetails();
+    checkTandC();
+}
+
 function handleDetails()
 {
     let form = document.forms["signUpForm"];
