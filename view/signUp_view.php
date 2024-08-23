@@ -13,7 +13,7 @@
             <h1>Sign Up</h1>
         </div>
         <div id = "details">
-            <form name = "signUpForm" method="post" action = "dashboard_controller.php">
+            <form name = "signUpForm" method="post" action = "logIn_controller.php">
                 <label for="email">Email</label><br>
                 <input type="text" id = "email" name = "email"><br><br>
 

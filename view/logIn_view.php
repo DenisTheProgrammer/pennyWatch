@@ -13,7 +13,7 @@
                 <h1>Log In</h1>
             </div>
             <div id = "details">
-                <form name = "signInForm" id = "signInForm" method = "post" action="dashboard_controller.php">
+                <form name = "signInForm" id = "signInForm" method = "post" action="logIn_controller.php">
                     <label for="username">Username (Email)</label><br>
                     <input type="text" id = "username" name = "username"><br><br>
 
@@ -26,7 +26,7 @@
                 <div id = "bottomButtons">
                         <input type= "submit" value = "Log In" name = "logIn" class = "button" ><br><br>
                 </form>
-                <form method="post" action="signUp_controller.php">
+                <form method="post" action="logIn_controller.php">
                         <input type="submit" value = "Register" name = "register" class = "button" id = "regButton"><br><br>
                 </form>
                 </div>
