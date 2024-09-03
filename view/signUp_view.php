@@ -49,7 +49,7 @@
                 </datalist>
                 <!-- more option countries can be added here as more get supported -->
 
-                <label for="streetNo">Street Number</label><br>
+                <label for="streetNo">House Number</label><br>
                 <input type="text" name = "streetNo" id = "streetNo"><br><br>
 
                 <label for="streetName">Street Name</label><br>
@@ -59,7 +59,7 @@
                 <input type="text" name = "postcode" id = "postcode"><br><br>
 
                 <label for="phoneNo">Phone Number</label><br>
-                <input type="number" name = "phoneNo" id = "phoneNo"><br><br>
+                <input type="text" name = "phoneNo" id = "phoneNo"><br><br>
 
                 <input type="checkbox" id = "toc">
                 <label for="toc"><strong> I Accept Terms And Conditions</strong></label><br><br>
