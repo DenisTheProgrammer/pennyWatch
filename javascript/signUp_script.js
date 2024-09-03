@@ -23,14 +23,10 @@ function handleDetails()
         let postcode = form.elements["postcode"].value.trim();
         let phoneNo = form.elements["phoneNo"].value.trim();
 
-        let button = document.getElementById("confirmDetails");
+        //had a problem with the code where it looked like it was working twice, turns out with event 
+        //listeners if you just make sure you load the page then run the functions you do not need on click calls on buttons
 
-        //when testing I had an issue where the script would run twice when the button is clicked, this prevents that by disabling the button after it was clicked
-        button.addEventListener("click", function(event)
-        {
-            event.target.disabled = true;
-        });
-        //end of solve
+        //the on click actually makes the function run but makes it run once more for each added click of the button
 
         if(email === "")
         {
@@ -104,18 +100,12 @@ function handleDetails()
             event.preventDefault();
         }
 
-        if(!(password == confirmPassword))
+        if(password != confirmPassword)
         {
             alert("Passwords do not match");
             event.preventDefault();
         }
 
-        button.addEventListener("click", function(event)
-        {
-            event.target.disabled = false;
-        });
-
-        //this temporarily fixes tho I believe it is maybe because the file submits to itself? so I am going to prevent that
     });
 }
 
