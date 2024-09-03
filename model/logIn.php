@@ -1,7 +1,7 @@
 <?php
 Class LogIn
 {
-    private $logInId;
+    private $logInID;
     private $username;
     private $password;
     private $access;

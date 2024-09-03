@@ -104,6 +104,12 @@ function handleDetails()
             event.preventDefault();
         }
 
+        if(!(password == confirmPassword))
+        {
+            alert("Passwords do not match");
+            event.preventDefault();
+        }
+
         button.addEventListener("click", function(event)
         {
             event.target.disabled = false;

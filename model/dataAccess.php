@@ -28,10 +28,10 @@ function getUserLogIn($username, $password)
 }
 
 //these are functions for the customerdetails database
-function registerDetails($details)
+function registerDetails($details, $logInId)
 {
     global $pdo;
     $statement = $pdo->prepare("INSERT INTO customerdetails (title,firstName,surname,dob,country,streetNumber,streetName,postcode,phoneNumber,logInId) VALUES(?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute([$details->title, $details->firstName, $details->surname, $details->dob, $details->country, $details->streetNumber, $details->streetName, $details->postcode, $details->phoneNumber, $details->logInId]);
+    $statement->execute([$details->title, $details->firstName, $details->surname, $details->dob, $details->country, $details->streetNumber, $details->streetName, $details->postcode, $details->phoneNumber, $logInId]);
 }
 ?>
