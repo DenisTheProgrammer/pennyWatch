@@ -62,7 +62,7 @@
                 <input type="text" name = "phoneNo" id = "phoneNo"><br><br>
 
                 <input type="checkbox" id = "toc">
-                <label for="toc"><strong> I Accept Terms And Conditions</strong></label><br><br>
+                <label for="toc"><strong> I Accept <a href="../view/termsAndConditions_view.php">Terms And Conditions</a></strong></label><br><br>
 
                 <input type="submit" value = "Confirm Details" name = "confirmDetails" class = "button" id = "confirmDetails">
             </form>
