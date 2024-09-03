@@ -10,7 +10,6 @@ if (isset($_REQUEST["register"]))
 
 if(isset($_REQUEST["confirmDetails"]))
 {
-    //do the sign up
     $logIn = new LogIn;
     $logIn->username = $_REQUEST["email"];
     $logIn->password = $_REQUEST["password"];
@@ -36,7 +35,17 @@ if(isset($_REQUEST["confirmDetails"]))
 
 if(isset($_REQUEST["logIn"]))
 {
-    //do the log in logic
-    require_once "../view/dashboard_view.php";
+    $username = $_REQUEST["username"];
+    $password = $_REQUEST["password"];
+    $logged = getUserLogIn($username,$password);
+
+    if(!isset($logged) || $logged == null)
+    {
+        require_once "../view/logIn_view.php";
+    }
+    else
+    {
+        require_once "../view/dashboard_view.php";
+    }
 }
 ?>
