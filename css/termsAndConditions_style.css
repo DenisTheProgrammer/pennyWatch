@@ -1,0 +1,28 @@
+.text
+{
+    font-size:22px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#title
+{
+    padding-top:3%;
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+}
+
+.botButton
+{
+    position: relative;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+
+.button 
+{
+    font-size: 25px;
+    padding:1% 4%;
+}

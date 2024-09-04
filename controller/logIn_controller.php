@@ -48,4 +48,9 @@ if(isset($_REQUEST["logIn"]))
         require_once "../view/dashboard_view.php";
     }
 }
+
+if(isset($_REQUEST["backButton"]))
+{
+    require_once "../view/signUp_view.php";
+}
 ?>
