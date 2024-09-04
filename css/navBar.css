@@ -1,0 +1,46 @@
+.navBar
+{
+    background-color: black;
+    overflow:hidden;
+}
+
+.navBar a
+{
+    float: left;
+    color: white;
+    padding: 1% 10%;
+    text-decoration: none; /*this removes the underline of the hyperlinks*/
+    font-size: 17px;
+}
+
+.navBar a:hover {
+    background-color: grey;
+    color: black; /*modifies colour of text when hoverings*/
+}
+
+.navBar a.active {
+    background-color: #008B8B;
+    color: black;
+}
+
+.manageButton
+{
+    float:right;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 1% 8%;
+    transition-duration: 0.2s;
+    font-size: 17px;
+}
+
+.manageButton:hover
+{
+    background-color: grey;
+    color:black;
+}
+
+.navForm
+{
+    padding-right: 2%;
+}
