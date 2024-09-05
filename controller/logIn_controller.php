@@ -53,4 +53,9 @@ if(isset($_REQUEST["backButton"]))
 {
     require_once "../view/signUp_view.php";
 }
+
+if(isset($_REQUEST["manageAccount"]))
+{
+    require_once "../view/manageAccount_view.php";
+}
 ?>
