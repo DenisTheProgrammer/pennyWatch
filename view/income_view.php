@@ -6,9 +6,9 @@
     </head>
     <body>
         <div class = "navBar">
-            <a href = "../view/dashboard_view.php">Dashboard</a>
-            <a class = "active" href = "../view/income_view.php">Income</a>
-            <a href = "../view/costs_view.php"> Costs</a>
+            <a href = "../controller/dashboard_controller.php">Dashboard</a>
+            <a class = "active" href = "../controller/income_controller.php">Income</a>
+            <a href = "../controller/costs_controller.php"> Costs</a>
             <form method = "post" action = "../controller/logIn_controller.php" class = "navForm">
                 <button type="submit" class="manageButton" name = "manageAccount">
                     <img src="../images/profile.png" alt="Profile Icon" class="buttonIcon">

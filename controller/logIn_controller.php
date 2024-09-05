@@ -44,7 +44,7 @@ if(isset($_REQUEST["logIn"]))
         require_once "../view/logIn_view.php";
     }
     else
-    {
+    {   
         require_once "../view/dashboard_view.php";
     }
 }
