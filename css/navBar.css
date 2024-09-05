@@ -29,9 +29,10 @@
     background-color: green;
     color: white;
     border: none;
-    padding: 1% 8%;
+    padding: 1%;
     transition-duration: 0.2s;
     font-size: 17px;
+    width:25%;
 }
 
 .manageButton:hover
@@ -40,7 +41,14 @@
     color:black;
 }
 
+.buttonIcon {
+    width: 5%; 
+    height: 5%; 
+    margin-right: 4%; 
+    vertical-align: middle;
+}
+
 .navForm
 {
-    padding-right: 2%;
+    padding-right: 2%; /*move button from the right edge*/
 }
