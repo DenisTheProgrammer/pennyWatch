@@ -1,0 +1,20 @@
+#backImage
+{
+    height:100%;
+    width:100%;
+}
+
+.backButton
+{
+    border:none;
+    width:6%;
+    background-color: inherit;
+    /*appearance: none;*/
+}
+
+.signInPopUp
+{
+    display: none;
+    position:fixed;
+    
+}
