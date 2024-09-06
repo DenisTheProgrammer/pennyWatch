@@ -19,14 +19,15 @@
 }
 
 .navBar a.active {
-    background-color: #008B8B;
-    color: black;
+    background-color: rgba(222, 49, 98, 0.43);
+    color: white;
+    font-weight: bold;
 }
 
 .manageButton
 {
     float:right;
-    background-color: green;
+    background-color:rgba(242, 141, 40, 0.632);
     color: white;
     border: none;
     padding: 1%;
