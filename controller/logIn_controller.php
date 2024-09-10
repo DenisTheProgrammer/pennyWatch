@@ -51,7 +51,7 @@ if(isset($_REQUEST["logIn"]))
 
 if(isset($_REQUEST["backButton"]))
 {
-    require_once "../view/signUp_view.php";
+    require_once "../view/dashboard_view.php";
 }
 
 if(isset($_REQUEST["manageAccount"]))

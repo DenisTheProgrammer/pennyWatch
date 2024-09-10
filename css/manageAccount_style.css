@@ -1,7 +1,34 @@
+
+
+.topSection
+{
+    display: flex;
+    align-items: center;
+    /*height: 200px;*/
+    /*border: 3px solid green;*/
+    margin: auto;
+    width: 100%;
+    overflow: hidden; /* used to contain floated children */
+}
+
+#form
+{
+    float: left;
+    width: 40%;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
 #backImage
 {
-    height:100%;
-    width:100%;
+    height: 300%;
+    width:50px;
+}
+
+#title
+{
+    overflow: hidden; /* makes the second element not wrap below the first one */
+
 }
 
 .backButton
@@ -17,4 +44,39 @@
     display: none;
     position:fixed;
     
+}
+
+
+.form
+{
+    color:white;
+    width: 100%;
+    height: 100%;
+}
+
+#formTitle,#details
+{
+    text-align: center;
+    width:30%;
+    padding:20px;
+}
+
+#formTitle
+{
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    background-color: rgba(29, 29, 29, 0.603);
+}
+
+#details
+{
+    padding-top: 3%;
+    background-color: rgba(77, 77, 79, .4);
+    border:3px solid black;
+}
+
+#bottomButtons
+{
+    padding-top: 10%;
 }
