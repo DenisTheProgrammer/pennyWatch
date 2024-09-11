@@ -1,7 +1,19 @@
-function openForm() {
-    document.getElementById("signInPopUp").style.display = "block";
-  }
+function openSignIn() 
+{
+  document.getElementById("signInPopUp").style.display = "block";
+}
   
-  function closeForm() {
-    document.getElementById("signInPopUp").style.display = "none";
-  }
+function closeSignIn() 
+{
+  document.getElementById("signInPopUp").style.display = "none";
+}
+
+function openDetails()
+{
+  document.getElementById("openDetailsPopUp").style.display = "block";
+}
+
+function closeDetails()
+{
+  document.getElementById("openDetailsPopUp").style.display = "none";
+}

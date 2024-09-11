@@ -18,7 +18,7 @@
         </div>
 
         <div class = "forms">
-            <button class="openSignIn" onclick="openForm()">Modify Sign In</button>
+            <button class="openSignIn" onclick="openSignIn()">Modify Sign In</button>
 
             <div class="signInPopUp" id="signInPopUp">
                 <div class = "form">
@@ -34,7 +34,7 @@
                             <input type="password" placeholder="Enter Password" name="password" id = "password">
                             <div id = "bottomButtons">
                                 <button type="submit" class="confirmSignIn">Confirm Change</button>
-                                <button type="button" class="cancelButton" onclick="closeForm()">Close</button>
+                                <button type="button" class="cancelButton" onclick="closeSignIn()">Close</button>
                             </div>
                         </form>
                     </div>
@@ -43,6 +43,27 @@
 
 
             <button class="openDetails" onclick="openDetails()">Modify Details</button>
+
+            <div class="openDetailsPopUp" id="openDetailsPopUp">
+                <div class = "form">
+                    <div id = "formTitle">
+                        <h1>Modify Sign In</h1>
+                    </div>
+                    <div id = "details">
+                        <form method = "post" action="../controller/logIn_controller.php" class="signInDetails">
+                            <label for="username"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Email" name="username" id = "username">
+
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="password" id = "password">
+                            <div id = "bottomButtons">
+                                <button type="submit" class="confirmSignIn">Confirm Change</button>
+                                <button type="button" class="cancelButton" onclick="closeDetails()">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
