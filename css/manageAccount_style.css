@@ -1,116 +1,131 @@
-
-
-.topSection
-{
-    display: flex;
-    align-items: center;
-    /*height: 200px;*/
-    /*border: 3px solid green;*/
-    margin: auto;
+/* General Page Layout */
+html, body {
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     width: 100%;
-    overflow: hidden; /* used to contain floated children */
 }
 
-#form
-{
+body {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topSection {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+#form {
     float: left;
     width: 42.5%;
     line-height: 1.5;
     vertical-align: middle;
 }
 
-#backImage
-{
+#backImage {
     height: 300%;
-    width:50px;
+    width: 50px;
 }
 
-#title
-{
-    overflow: hidden; /* makes the second element not wrap below the first one */
-
-}
-
-.backButton
-{
-    border:none;
-    width:6%;
+.backButton {
+    border: none;
+    width: 6%;
     background-color: inherit;
-    /*appearance: none;*/
 }
 
-.forms
-{
+/* Form Buttons Layout */
+.forms {
     margin: auto;
     display: flex;
-    flex-direction:row;
-    justify-content: center;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     color: white;
     max-width: 40%;
-    padding-top:5%;
+    padding-top: 5%;
+    height: auto;
 }
 
-.openDetails,.openSignIn
-{
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 3% 10%;
-    transition-duration: 0.2s;
-}
-
-.openDetails:hover,.openSignIn:hover
-{
-    background-color: grey;
-    color:black;
-}
-
-
-.signInPopUp,.openDetailsPopUp
-{
-    display: none;
-    position:fixed;
-    top: 30%;
-}
-
-.openDetailsPopUp
-{
-    margin-left:26.1%;
-}
-
-.form
-{
-    color:white;
+.forms-buttons {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
+    gap: 5%;
 }
 
+/* Form Popups */
+.signInPopUp, .openDetailsPopUp {
+    display: none; 
+    width: 100%;
+    margin-top: 20px; 
+    position: relative;
+}
 
-#formTitle,#details
-{
+/* Form Container */
+.form {
+    color: white;
+    width: 100%;
+    height: auto;
+}
+
+#formTitle, #details {
     text-align: center;
-    width:30%;
-    padding:20px;
+    width: 100%;
+    padding: 20px;
 }
 
-#formTitle
-{
+#formTitle {
     border-top: 3px solid black;
     border-left: 3px solid black;
     border-right: 3px solid black;
     background-color: rgba(29, 29, 29, 0.603);
 }
 
-#details
-{
+#details {
     padding-top: 3%;
     background-color: rgba(77, 77, 79, .4);
-    border:3px solid black;
+    border: 3px solid black;
 }
 
-#bottomButtons
-{
+/* Form Input and Button Styles */
+.openDetails, .openSignIn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 3% 10%;
+    transition-duration: 0.2s;
+    width: 100%;
+}
+
+.openDetails:hover, .openSignIn:hover {
+    background-color: grey;
+    color: black;
+}
+
+/* Popup Buttons (Confirm/Close) Side by Side */
+#bottomButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
     padding-top: 10%;
+}
+
+#bottomButtons button {
+    width: 48%;
+}
+
+/* Stack Form Inputs Vertically */
+form.signInDetails label, form.signInDetails input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form.signInDetails input {
+    padding: 10px;
+    box-sizing: border-box;
 }
