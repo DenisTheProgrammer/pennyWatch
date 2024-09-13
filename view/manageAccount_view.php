@@ -32,12 +32,12 @@
                     <div id="details">
                         <form method="post" action="../controller/logIn_controller.php" class="signInDetails">
                             <label for="username"><b>Username</b></label>
-                            <input type="text" placeholder="Enter Email" name="username" id = "username">
+                            <input type="text" value = <?=$username?> name="username" id = "username">
 
                             <label for="password"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="password" id = "password">
+                            <input type="password" value = <?=$password?> name="password" id = "password">
                             <div id = "bottomButtons">
-                                <button type="submit" class="confirmSignIn">Confirm Change</button>
+                                <button type="submit" class="confirmSignIn" name = "confirmSignIn">Confirm Change</button>
                                 <button type="button" class="cancelButton" onclick="closeSignIn()">Close</button>
                             </div>
                         </form>
@@ -53,33 +53,33 @@
                     <div id="details">
                         <form method="post" action="../controller/logIn_controller.php" class="signInDetails">
                             <label for="title"><b>Title</b></label>
-                            <input type="text" placeholder="" name="title" id = "title">
+                            <input type="text" value = "<?=$title?>" name="title" id = "title">
 
                             <label for="firstName"><b>First Name</b></label>
-                            <input type="text" placeholder="" name="firstName" id = "firstName">
+                            <input type="text" value = "<?=$firstName?>" name="firstName" id = "firstName">
 
                             <label for="surname">Surname</label>
-                            <input type="text" placeholder="" name = "surname" id = "surname">
+                            <input type="text" value = "<?=$surname?>" name = "surname" id = "surname">
 
                             <label for="dob">Date of Birth</label>
-                            <input type="date" placeholder="" name = "dob" id="dob">
+                            <input type="date" value = "<?=$dob?>" name = "dob" id="dob">
 
                             <label for="country">Country</label>
-                            <input type="text" placeholder="" name = "country" id = "country">
+                            <input type="text" value = "<?=$country?>" name = "country" id = "country">
 
                             <label for="streetNo">Street Number</label>
-                            <input type="text" placeholder="" name="streetNo" id = "streetNo">
+                            <input type="text" value = "<?=$streetNo?>" name="streetNo" id = "streetNo">
 
                             <label for="streetName">Street Name</label>
-                            <input type="text" placeholder="" name="streetName" id = "streetName">
+                            <input type="text" value = "<?=$streetName?>" name="streetName" id = "streetName">
 
                             <label for="postcode">Postcode</label>
-                            <input type="text" placeholder="" name="postcode" id = "postcode">
+                            <input type="text" value = "<?=$postcode?>" name="postcode" id = "postcode">
 
                             <label for="phoneNo">Phone Number</label>
-                            <input type="text" placeholder="" name="phoneNo" id = "phoneNo">
+                            <input type="text" value = "<?=$phoneNo?>" name="phoneNo" id = "phoneNo">
                             <div id = "bottomButtons">
-                                <button type="submit" class="confirmSignIn">Confirm Change</button>
+                                <button type="submit" class="confirmDetails" name = "confirmDetails">Confirm Change</button>
                                 <button type="button" class="cancelButton" onclick="closeDetails()">Close</button>
                             </div>
                         </form>
