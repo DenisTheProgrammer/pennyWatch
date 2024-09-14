@@ -86,4 +86,21 @@ if(isset($_REQUEST["confirmSignIn"]))
     $_SESSION["loggedUser"] = $logged;
     require_once "../view/dashboard_view.php";
 }
+
+if(isset($_REQUEST["confirmDetailsModify"]))
+{
+    $loggedUser = $_SESSION["loggedUser"];
+    $customer = new Customer;
+    $customer->title = $_REQUEST["title"];
+    $customer->firstName = $_REQUEST["firstName"];
+    $customer->surname = $_REQUEST["surname"];
+    $customer->dob = $_REQUEST["dob"];
+    $customer->country = $_REQUEST["country"];
+    $customer->streetNumber = $_REQUEST["streetNo"];
+    $customer->streetName = $_REQUEST["streetName"];
+    $customer->postcode = $_REQUEST["postcode"];
+    $customer->phoneNumber = $_REQUEST["phoneNo"];
+    modifyDetails($customer, $loggedUser[0]->logInID);
+    require_once "../view/dashboard_view.php";
+}
 ?>

@@ -79,7 +79,7 @@
                             <label for="phoneNo">Phone Number</label>
                             <input type="text" value = "<?=$phoneNo?>" name="phoneNo" id = "phoneNo">
                             <div id = "bottomButtons">
-                                <button type="submit" class="confirmDetails" name = "confirmDetails">Confirm Change</button>
+                                <button type="submit" class="confirmDetails" name = "confirmDetailsModify">Confirm Change</button>
                                 <button type="button" class="cancelButton" onclick="closeDetails()">Close</button>
                             </div>
                         </form>
