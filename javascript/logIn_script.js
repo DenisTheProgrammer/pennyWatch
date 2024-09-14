@@ -1,6 +1,7 @@
 window.onload = function() 
 {
     handleInput();
+    passwordVisibility();
 }
 
 function handleInput()

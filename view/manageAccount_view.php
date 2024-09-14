@@ -36,6 +36,10 @@
 
                             <label for="password"><b>Password</b></label>
                             <input type="password" value = <?=$password?> name="password" id = "password">
+
+                            <input type="checkbox" id = "showPassword" onclick = passwordVisibility()>
+                            <label for="showPassword">Show Password</label><br><br>
+                            
                             <div id = "bottomButtons">
                                 <button type="submit" class="confirmSignIn" name = "confirmSignIn">Confirm Change</button>
                                 <button type="button" class="cancelButton" onclick="closeSignIn()">Close</button>

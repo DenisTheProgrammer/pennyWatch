@@ -2,6 +2,7 @@ window.onload = function()
 {
     handleDetails();
     checkTandC();
+    passwordVisibility()
 }
 
 function handleDetails()

@@ -58,7 +58,6 @@ if(isset($_REQUEST["backButton"]))
 
 if(isset($_REQUEST["manageAccount"]))
 {
-    print_r("dude you still need a checkbox to see the password melon");
     $loggedUser = $_SESSION["loggedUser"];
     $username = $loggedUser[0]->username;
     $password = $loggedUser[0]->password;

@@ -20,13 +20,13 @@
                 <label for="password">Password</label><br>
                 <input type="password" id = "password" name = "password"><br><br>
 
-                <input type="checkbox" id = "showPassword" onclick = passwordVisibility()>
+                <input type="checkbox" id = "showPassword">
                 <label for="showPassword">Show Password</label><br><br>
 
                 <label for="confirmPassword">Confirm Password</label><br>
                 <input type="password" id = "confirmPassword" name = "confirmPassword"><br><br>
 
-                <input type="checkbox" id = "showConfirm" onclick = passwordVisibility()>
+                <input type="checkbox" id = "showConfirm">
                 <label for="showConfirm">Show Password</label><br><br>
 
                 <label for="title">Title</label><br>

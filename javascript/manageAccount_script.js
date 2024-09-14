@@ -17,3 +17,14 @@ function closeDetails()
 {
   document.getElementById("openDetailsPopUp").style.display = "none";
 }
+
+function passwordVisibility() {
+  let passwordField = document.getElementById("password");
+  let passwordCheck = document.getElementById("showPassword");
+
+  if (passwordCheck.checked) {
+      passwordField.type = "text";
+  } else {
+      passwordField.type = "password";
+  }
+}
