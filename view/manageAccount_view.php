@@ -30,7 +30,7 @@
                         <h1>Modify Sign In</h1>
                     </div>
                     <div id="details">
-                        <form method="post" action="../controller/logIn_controller.php" class="signInDetails">
+                        <form method="post" action="../controller/logIn_controller.php" class="signInDetails" name = "signInDetailsForm">
                             <label for="username"><b>Username</b></label>
                             <input type="text" value = <?=$username?> name="username" id = "username">
 
@@ -39,7 +39,13 @@
 
                             <input type="checkbox" id = "showPassword" onclick = passwordVisibility()>
                             <label for="showPassword">Show Password</label><br><br>
-                            
+
+                            <label for="confirmPassword"><b>Confirm Password</b></label>
+                            <input type="password" value = <?=$password?> name="confirmPassword" id = "confirmPassword">
+
+                            <input type="checkbox" id = "showConfirmPassword" onclick = passwordVisibility()>
+                            <label for="showConfirmPassword">Show Password</label><br><br>
+
                             <div id = "bottomButtons">
                                 <button type="submit" class="confirmSignIn" name = "confirmSignIn">Confirm Change</button>
                                 <button type="button" class="cancelButton" onclick="closeSignIn()">Close</button>
@@ -55,7 +61,7 @@
                         <h1>Modify Details</h1>
                     </div>
                     <div id="details">
-                        <form method="post" action="../controller/logIn_controller.php" class="signInDetails">
+                        <form method="post" action="../controller/logIn_controller.php" class="signInDetails" name = "customerDetailsForm">
                             <label for="title"><b>Title</b></label>
                             <input type="text" value = "<?=$title?>" name="title" id = "title">
 
