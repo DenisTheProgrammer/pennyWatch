@@ -20,6 +20,6 @@
             </form><!-- purpose of this is to take to a manage account page-->
         </div>
 
-        <div id="chartContainer"></div>
+        <div id="chartContainer"></div> <!-- thi displays the chart -->
     </body>
 </html>

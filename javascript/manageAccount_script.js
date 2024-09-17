@@ -69,11 +69,6 @@ function handleDetails()
         let postcode = form.elements["postcode"].value.trim();
         let phoneNo = form.elements["phoneNo"].value.trim();
 
-        //had a problem with the code where it looked like it was working twice, turns out with event 
-        //listeners if you just make sure you load the page then run the functions you do not need on click calls on buttons
-
-        //the on click actually makes the function run but makes it run once more for each added click of the button
-
         if(title === "")
         {
             alert("Please enter a title");

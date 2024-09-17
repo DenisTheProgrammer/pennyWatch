@@ -1,4 +1,6 @@
 <?php
+//here link this to the data access and figure out the database structure to store the data you want to access in the graph
+//just learnt that arrays and numbers in javascript will be accessed using their key that they get stored as in their array rather than the php name
 
     $dataSeries1 = array(
         array("label" => "Monday", "y" => 30),

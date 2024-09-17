@@ -4,11 +4,13 @@ require_once "../model/logIn.php";
 require_once "../model/customer.php";
 session_start();
 
+//this displays the sign up page when the register button is clicked
 if (isset($_REQUEST["register"]))
 {
     require_once "../view/signUp_view.php";
 }
 
+//this deals with registering a new user
 if(isset($_REQUEST["confirmDetails"]))
 {
     $logIn = new LogIn;
@@ -34,6 +36,7 @@ if(isset($_REQUEST["confirmDetails"]))
     require_once "../view/logIn_view.php";
 }
 
+//this deals with logging the user in
 if(isset($_REQUEST["logIn"]))
 {
     $username = $_REQUEST["username"];
@@ -51,11 +54,13 @@ if(isset($_REQUEST["logIn"]))
     }
 }
 
+//this takes the user back to the dashboard from the manage account view
 if(isset($_REQUEST["backButton"]))
 {
     require_once "../view/dashboard_view.php";
 }
 
+//this takes all the deatils needed for autofill, preparing everything needed for the manage account view
 if(isset($_REQUEST["manageAccount"]))
 {
     $loggedUser = $_SESSION["loggedUser"];
@@ -74,6 +79,7 @@ if(isset($_REQUEST["manageAccount"]))
     require_once "../view/manageAccount_view.php";
 }
 
+//this modifies the log in details of the user through the manage account page
 if(isset($_REQUEST["confirmSignIn"]))
 {
     $loggedUser = $_SESSION["loggedUser"];
@@ -86,6 +92,7 @@ if(isset($_REQUEST["confirmSignIn"]))
     require_once "../view/dashboard_view.php";
 }
 
+//this modifies the details of the logged in user through the manage account page
 if(isset($_REQUEST["confirmDetailsModify"]))
 {
     $loggedUser = $_SESSION["loggedUser"];
