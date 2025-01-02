@@ -11,6 +11,7 @@ Class Customer
     private $streetName;
     private $postcode;
     private $phoneNumber;
+    private $logInID;
 
     // getters and setters
 

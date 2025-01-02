@@ -12,17 +12,16 @@ function dashboardPieChart()
                 backgroundColor: "transparent",
                 animationEnabled: true,
                 title: {
-                    text: "Usage Share of Desktop Browsers",
+                    text: "Incomes vs Costs",
                     fontColor: "white"
                 },
                 subtitles: [{
-                    text: "November 2017",
+                    text: "this month's breakdown",
                     fontColor: "white"
                 }],
                 data: [{
-                    type: "pie",
-                    yValueFormatString: "#,##0.00\"%\"",
-                    indexLabel: "{label} ({y})",
+                    type: "pie",          
+                    indexLabel: "{label}: {y}",
                     indexLabelFontColor: "white",
                     dataPoints: data.dashboardPieChart
                 }]
@@ -44,20 +43,20 @@ function dashboardColumnChart()
                 animationEnabled: true,
                 theme: "light2",
                 title:{
-                    text: "Gold Reserves",
+                    text: "Monthly Disposable Income",
                     fontColor: "white"
                 },
                 axisX: {
                     labelFontColor: "white" 
                 },
                 axisY: {
-                    title: "Gold Reserves (in tonnes)",
+                    title: "Disposable Income (£)",
                     titleFontColor: "white", 
                     labelFontColor: "white"  
                 },
                 data: [{
                     type: "column",
-                    yValueFormatString: "#,##0.## tonnes",
+                    yValueFormatString: "#,##0.## £",
                     dataPoints: data.dashboardColumnChart
                 }]
             });

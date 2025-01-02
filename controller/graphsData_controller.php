@@ -1,25 +1,34 @@
 <?php
-//here link this to the data access and figure out the database structure to store the data you want to access in the graph
-//just learnt that arrays and numbers in javascript will be accessed using their key that they get stored as in their array rather than the php name
+    require_once "../model/dataAccess.php";
+
+    $totalIncomeExample = getTotalIncomeByMonth(5,2024);
+    $totalCostExample = getTotalCostByMonth(5,2024);
+
+    $months = [
+        "January", "February", "March", "April", "May", 
+        "June", "July", "August", "September", "October", 
+        "November", "December"
+    ];
 
     $dataDashboardPieChart = array( 
-        array("label"=>"Chrome", "y"=>64.02),
-        array("label"=>"Firefox", "y"=>12.55),
-        array("label"=>"IE", "y"=>8.47),
-        array("label"=>"Safari", "y"=>6.08),
-        array("label"=>"Edge", "y"=>4.29),
-        array("label"=>"Others", "y"=>4.59)
+        array("label"=>"Income", "y"=>$totalIncomeExample),
+        array("label"=>"Cost", "y"=>$totalCostExample)
     );
 
-    $dataDashboardColumnChart = array( 
-        array("y" => 3373.64, "label" => "Germany" ),
-        array("y" => 2435.94, "label" => "France" ),
-        array("y" => 1842.55, "label" => "China" ),
-        array("y" => 1828.55, "label" => "Russia" ),
-        array("y" => 1039.99, "label" => "Switzerland" ),
-        array("y" => 765.215, "label" => "Japan" ),
-        array("y" => 612.453, "label" => "Netherlands" )
-    );
+    $dataDashboardColumnChart = array();
+
+    for ($i = 1; $i <= count($months); $i++)
+    {
+        $monthlyIncome = getTotalIncomeByMonth($i, 2024);
+        $monthlyCost = getTotalCostByMonth($i, 2024);
+        $disposableIncome = $monthlyIncome - $monthlyCost;
+
+        $dataDashboardColumnChart[] = array(
+            "y" => $disposableIncome,
+            "label" => $months[$i-1]
+        );
+    }
+
     
     // Combine both data series into one response
     $data = array(
