@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
+        <link rel = "stylesheet" type = "text/css" href = "../css/dashboard_style.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/navBar.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
         <script src="../javascript/graphs_script.js"></script>
@@ -21,6 +22,12 @@
             </form><!-- purpose of this is to take to a manage account page-->
         </div>
 
-        <div id="chartContainer"></div> <!-- this displays the chart -->
+        <div class = "charts">
+            <div id="pieChartContainer"></div> <!-- this displays the chart -->
+            <div id="columnChartContainer"></div>
+        </div>
+
+        <p id = "conclusionText"> So far this month, your income - costs balance this month is: add php variable </p>
+        <p id = "message">Add php message here</p>
     </body>
 </html>
