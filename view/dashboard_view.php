@@ -27,7 +27,8 @@
             <div id="columnChartContainer"></div>
         </div>
 
-        <p id = "conclusionText"> So far this month, your income - costs balance this month is: add php variable </p>
-        <p id = "message">Add php message here</p>
+        <p id="conclusionText">Your disposable income this month is: <?= $disposableIncome; ?></p>
+        <p id="message"><?= $message; ?></p>
+
     </body>
 </html>

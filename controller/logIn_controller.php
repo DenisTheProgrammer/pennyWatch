@@ -2,6 +2,7 @@
 require_once "../model/dataAccess.php";
 require_once "../model/logIn.php";
 require_once "../model/customer.php";
+require_once "../controller/financeFunctions.php";
 session_start();
 
 //this displays the sign up page when the register button is clicked
@@ -57,6 +58,8 @@ if(isset($_REQUEST["logIn"]))
 //this takes the user back to the dashboard from the manage account view
 if(isset($_REQUEST["backButton"]))
 {
+    $disposableIncome = calculateDisposableIncome(5, 2024);//look here
+    $message = getFeedbackMessage($disposableIncome);
     require_once "../view/dashboard_view.php";
 }
 
@@ -89,6 +92,8 @@ if(isset($_REQUEST["confirmSignIn"]))
     modifyLogIn($logIn, $loggedUser[0]->logInID);
     $logged = getUserLogInByID($loggedUser[0]->logInID);
     $_SESSION["loggedUser"] = $logged;
+    $disposableIncome = calculateDisposableIncome(5, 2024);//look here
+    $message = getFeedbackMessage($disposableIncome);
     require_once "../view/dashboard_view.php";
 }
 
@@ -107,6 +112,8 @@ if(isset($_REQUEST["confirmDetailsModify"]))
     $customer->postcode = $_REQUEST["postcode"];
     $customer->phoneNumber = $_REQUEST["phoneNo"];
     modifyDetails($customer, $loggedUser[0]->logInID);
+    $disposableIncome = calculateDisposableIncome(5, 2024);//look here
+    $message = getFeedbackMessage($disposableIncome);
     require_once "../view/dashboard_view.php";
 }
 ?>

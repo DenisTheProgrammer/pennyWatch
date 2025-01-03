@@ -1,8 +1,5 @@
 <?php
-    require_once "../model/dataAccess.php";
-
-    $totalIncomeExample = getTotalIncomeByMonth(5,2024);
-    $totalCostExample = getTotalCostByMonth(5,2024);
+    require_once "../controller/financeFunctions.php";
 
     $months = [
         "January", "February", "March", "April", "May", 
@@ -11,17 +8,15 @@
     ];
 
     $dataDashboardPieChart = array( 
-        array("label"=>"Income", "y"=>$totalIncomeExample),
-        array("label"=>"Cost", "y"=>$totalCostExample)
+        array("label"=>"Income", "y"=>getTotalIncomeByMonth(5,2024)),
+        array("label"=>"Cost", "y"=>getTotalCostByMonth(5,2024))
     );
 
     $dataDashboardColumnChart = array();
 
     for ($i = 1; $i <= count($months); $i++)
     {
-        $monthlyIncome = getTotalIncomeByMonth($i, 2024);
-        $monthlyCost = getTotalCostByMonth($i, 2024);
-        $disposableIncome = $monthlyIncome - $monthlyCost;
+        $disposableIncome = calculateDisposableIncome($i, 2024);
 
         $dataDashboardColumnChart[] = array(
             "y" => $disposableIncome,
