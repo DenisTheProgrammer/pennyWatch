@@ -51,6 +51,8 @@ if(isset($_REQUEST["logIn"]))
     else
     {   
         $_SESSION["loggedUser"] = $logged;
+        $disposableIncome = calculateDisposableIncome(5, 2024);//look here
+        $message = getFeedbackMessage($disposableIncome);
         require_once "../view/dashboard_view.php";
     }
 }
