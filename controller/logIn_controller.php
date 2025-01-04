@@ -3,7 +3,6 @@ require_once "../model/dataAccess.php";
 require_once "../model/logIn.php";
 require_once "../model/customer.php";
 require_once "../controller/financeFunctions.php";
-session_start();
 
 //this displays the sign up page when the register button is clicked
 if (isset($_REQUEST["register"]))
@@ -51,18 +50,11 @@ if(isset($_REQUEST["logIn"]))
     else
     {   
         $_SESSION["loggedUser"] = $logged;
+        $_SESSION["customerDetails"] = getDetailsByLogInId($logged[0]->logInID);
         $disposableIncome = calculateDisposableIncome(5, 2024);//look here
         $message = getFeedbackMessage($disposableIncome);
         require_once "../view/dashboard_view.php";
     }
-}
-
-//this takes the user back to the dashboard from the manage account view
-if(isset($_REQUEST["backButton"]))
-{
-    $disposableIncome = calculateDisposableIncome(5, 2024);//look here
-    $message = getFeedbackMessage($disposableIncome);
-    require_once "../view/dashboard_view.php";
 }
 
 //this takes all the deatils needed for autofill, preparing everything needed for the manage account view

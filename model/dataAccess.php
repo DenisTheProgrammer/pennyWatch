@@ -67,19 +67,19 @@ function modifyDetails($customer, $logInId)
 
 //these are functions for the income database
 
-function getIncomesByMonth($month, $year) //both year and month will be numbers e.g. 2023 and 3 for march
+function getIncomesByMonth($month, $year, $customerID)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM income WHERE YEAR(date) =? AND MONTH(date) =?");
-    $statement->execute([$year, $month]);
+    $statement = $pdo->prepare("SELECT * FROM income WHERE YEAR(date) = ? AND MONTH(date) = ? AND customerID = ?");
+    $statement->execute([$year, $month, $customerID]);
     return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
 }
 
-function getTotalIncomeByMonth($month, $year) 
+function getTotalIncomeByMonth($month, $year, $customerID)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT SUM(incomeAmount) AS totalIncome FROM income WHERE YEAR(date) = ? AND MONTH(date) = ?");
-    $statement->execute([$year, $month]);
+    $statement = $pdo->prepare("SELECT SUM(incomeAmount) AS totalIncome FROM income WHERE YEAR(date) = ? AND MONTH(date) = ? AND customerID = ?");
+    $statement->execute([$year, $month, $customerID]);
     $totalIncome = $statement->fetchColumn();
     return $totalIncome ?: 0; // return 0 if result is null or 0
 }
@@ -87,20 +87,20 @@ function getTotalIncomeByMonth($month, $year)
 
 //these are functions for the cost database
 
-function getCostsByMonth($month, $year)
+function getCostsByMonth($month, $year, $customerID)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM cost WHERE YEAR(date) =? AND MONTH(date) =?");
-    $statement->execute([$year, $month]);
+    $statement = $pdo->prepare("SELECT * FROM cost WHERE YEAR(date) = ? AND MONTH(date) = ? AND customerID = ?");
+    $statement->execute([$year, $month, $customerID]);
     return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
 }
 
-function getTotalCostByMonth($month, $year) 
+function getTotalCostByMonth($month, $year, $customerID)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT SUM(costAmount) AS totalCost FROM cost WHERE YEAR(date) = ? AND MONTH(date) = ?");
-    $statement->execute([$year, $month]);
-    $totalIncome = $statement->fetchColumn();
-    return $totalIncome ?: 0; // return 0 if result is null or 0
+    $statement = $pdo->prepare("SELECT SUM(costAmount) AS totalCost FROM cost WHERE YEAR(date) = ? AND MONTH(date) = ? AND customerID = ?");
+    $statement->execute([$year, $month, $customerID]);
+    $totalCost = $statement->fetchColumn();
+    return $totalCost ?: 0; // return 0 if result is null or 0
 }
 ?>

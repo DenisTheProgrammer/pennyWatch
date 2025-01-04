@@ -8,7 +8,7 @@
 
     <body>
         <div class = "topSection">
-            <form method = "post" action = "../controller/logIn_controller.php" id = "form">
+            <form method = "post" action = "../controller/dashboard_controller.php" id = "form">
                 <button type="submit" class="backButton" name = "backButton">
                     <img src = "../images/backButton.png" id = "backImage" alt = "back button">
                 </button>

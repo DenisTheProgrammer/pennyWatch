@@ -8,8 +8,8 @@
     ];
 
     $dataDashboardPieChart = array( 
-        array("label"=>"Income", "y"=>getTotalIncomeByMonth(5,2024)),
-        array("label"=>"Cost", "y"=>getTotalCostByMonth(5,2024))
+        array("label"=>"Income", "y"=>getTotalIncomeByMonth(5, 2024, $_SESSION["customerDetails"][0]->customerID)),
+        array("label"=>"Cost", "y"=>getTotalCostByMonth(5, 2024, $_SESSION["customerDetails"][0]->customerID))
     );
 
     $dataDashboardColumnChart = array();
