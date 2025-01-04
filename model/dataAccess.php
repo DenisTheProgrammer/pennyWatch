@@ -66,6 +66,13 @@ function modifyDetails($customer, $logInId)
 }
 
 //these are functions for the income database
+function getAllIncomes()
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM income");
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
+}
 
 function getIncomesByMonth($month, $year, $customerID)
 {
