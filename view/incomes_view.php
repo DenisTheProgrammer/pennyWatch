@@ -59,7 +59,7 @@
                     <option value="2022" <?= ($filterYear == '2022') ? 'selected' : ''; ?>>2022</option>
                 </select>
 
-                <button type="submit" class="button">Reset</button>
+                <button type="submit" name = "resetButton" class="button">Reset</button>
             </form>
 
             <!-- Table of incomes -->

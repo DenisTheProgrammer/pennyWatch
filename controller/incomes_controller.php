@@ -31,7 +31,10 @@ if ($filterYear != 'All') {
 
 $filters['customer_id'] = $_SESSION["customerDetails"][0]->customerID;
 
-if (empty($conditions)) {
+if (empty($conditions) || isset($_REQUEST["resetButton"])) {
+    $filterCategory = "All";
+    $filterMonth = "All";
+    $filterYear = "All";
     $incomes = getAllIncomes($_SESSION["customerDetails"][0]->customerID);
 } else {
     $incomes = getIncomesDynamically($conditions, $filters);
