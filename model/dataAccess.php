@@ -91,6 +91,16 @@ function getTotalIncomeByMonth($month, $year, $customerID)
     return $totalIncome ?: 0; // return 0 if result is null or 0
 }
 
+function getIncomesDynamically($conditions, $filters)
+{
+    global $pdo;
+    $sql = "SELECT * FROM income WHERE customerID = :customer_id";
+    $sql .= ' AND ' . implode(' AND ', $conditions);
+    $statement = $pdo->prepare($sql);
+    $statement->execute($filters);
+    return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
+}
+
 
 //these are functions for the cost database
 
