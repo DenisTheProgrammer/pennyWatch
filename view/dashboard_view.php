@@ -5,7 +5,8 @@
         <link rel = "stylesheet" type = "text/css" href = "../css/dashboard_style.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/navBar.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
-        <script src="../javascript/graphs_script.js"></script>
+
+        <script src="../javascript/dashboardGraphs_script.js"></script>
         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     </head>
     <body>

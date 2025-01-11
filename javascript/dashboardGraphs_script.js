@@ -6,12 +6,14 @@ window.onload = async function () {
 
         dashboardPieChart(data.dashboardPieChart);
         dashboardColumnChart(data.dashboardColumnChart);
+        
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 };
 
-function dashboardPieChart(dashboardPieData) {
+function dashboardPieChart(dashboardPieData) 
+{
     const chart = new CanvasJS.Chart("pieChartContainer", {
         backgroundColor: "transparent",
         animationEnabled: true,
@@ -34,7 +36,8 @@ function dashboardPieChart(dashboardPieData) {
     chart.render();
 }
 
-function dashboardColumnChart(dashboardColumnData) {
+function dashboardColumnChart(dashboardColumnData) 
+{
     const chart = new CanvasJS.Chart("columnChartContainer", {
         backgroundColor: "transparent",
         animationEnabled: true,

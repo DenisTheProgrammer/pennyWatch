@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Incomes</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/navBar.css">
-    <link rel="stylesheet" href = "../css//incomes_style.css">
+    <link rel="stylesheet" type = "text/css" href="../css/main.css">
+    <link rel="stylesheet" type = "text/css" href="../css/navBar.css">
+    <link rel="stylesheet" type = "text/css" href = "../css//incomes_style.css">
+    <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
+
     <script src="../javascript/displayFilter.js"></script>
+    <script src="../javascript/incomesGraphs_script.js"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 </head>
 <body>
     <div class="navBar">
@@ -91,6 +95,9 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+        <div id="charts">
+            <div id = "verticalBarChart"></div>
         </div>
     </div>
 </body>

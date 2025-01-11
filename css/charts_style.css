@@ -9,3 +9,9 @@
     height: 370px;
     width: 70%;
 }
+
+#verticalBarChart
+{
+    height: 600px;
+    width: 100%;
+}
