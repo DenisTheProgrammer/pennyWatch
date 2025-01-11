@@ -1,12 +1,14 @@
 .incomePage
 {
-    padding-top:1%;
+    display: flex;
+    padding-top: 1%;
+    gap:5%;
 }
 
 #filterForm {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 100%;
     gap: 2%;
     margin-bottom: 2%;
     padding:1%;
@@ -37,7 +39,7 @@
 }
 
 table {
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
