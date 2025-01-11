@@ -6,6 +6,7 @@
     <title>Incomes</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/navBar.css">
+    <link rel="stylesheet" href = "../css//incomes_style.css">
     <script src="../javascript/displayFilter.js"></script>
 </head>
 <body>
@@ -70,6 +71,7 @@
                         <th>Amount</th>
                         <th>Category</th>
                         <th>Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
