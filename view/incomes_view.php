@@ -9,7 +9,7 @@
     <link rel="stylesheet" type = "text/css" href = "../css//incomes_style.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
 
-    <script src="../javascript/displayFilter.js"></script>
+    <script src="../javascript/incomes_script.js"></script>
     <script src="../javascript/incomesGraphs_script.js"></script>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 </head>
@@ -68,7 +68,7 @@
             </form>
 
             <!-- Table of incomes -->
-            <table>
+            <table id = "incomeTable">
                 <thead>
                     <tr>
                         <th>Reference</th>
@@ -95,6 +95,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <div id="pagination"></div>
         </div>
         <div id="rightSide">
             <div id = "verticalBarChart"></div>
