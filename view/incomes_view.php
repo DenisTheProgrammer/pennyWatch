@@ -96,7 +96,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="charts">
+        <div id="rightSide">
             <div id = "verticalBarChart"></div>
         </div>
     </div>

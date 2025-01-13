@@ -2,13 +2,13 @@
 {
     display: flex;
     padding-top: 1%;
-    gap:5%;
+    gap:17%;
 }
 
 #filterForm {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 120%;
     gap: 2%;
     margin-bottom: 2%;
     padding:1%;
@@ -39,7 +39,7 @@
 }
 
 table {
-    width: 100%;
+    width: 120%;
     border-collapse: collapse;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 

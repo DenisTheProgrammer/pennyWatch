@@ -12,6 +12,7 @@ window.onload = async function () {
 };
 
 function incomesVerticalBarChart(dashboardBarData) {
+    console.log(dashboardBarData);
     const chart = new CanvasJS.Chart("verticalBarChart", {
         backgroundColor: "transparent",
         animationEnabled: true,
