@@ -66,11 +66,11 @@ function modifyDetails($customer, $logInId)
 }
 
 //these are functions for the income database
-function getAllIncomes()
+function getAllIncomes($customerID)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM income");
-    $statement->execute();
+    $statement = $pdo->prepare("SELECT * FROM income WHERE customerID = ?");
+    $statement->execute([$customerID]);
     return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
 }
 
