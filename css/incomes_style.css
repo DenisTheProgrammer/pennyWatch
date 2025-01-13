@@ -1,3 +1,8 @@
+html, body {
+    overflow: hidden; /*removing the scrollbar*/
+    height: 100%;
+}
+
 /*Main divs style*/
 .incomePage {
     display: flex;
