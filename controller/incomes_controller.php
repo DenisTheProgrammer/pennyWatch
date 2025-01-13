@@ -4,41 +4,50 @@ require_once "../model/income.php";
 require_once "../model/customer.php";
 session_start();
 
-// Get the filter values from POST or set defaults
-$filterCategory = $_POST['filterCategory'] ?? 'All';
-$filterMonth = $_POST['filterMonth'] ?? 'All';
-$filterYear = $_POST['filterYear'] ?? 'All';
+if (!isset($_REQUEST["addIncomeButton"]))
+{
+    // Get the filter values from POST or set defaults
+    $filterCategory = $_POST['filterCategory'] ?? 'All';
+    $filterMonth = $_POST['filterMonth'] ?? 'All';
+    $filterYear = $_POST['filterYear'] ?? 'All';
 
-// Initialize the conditions array
-$conditions = [];
-$filters = [];
+    // Initialize the conditions array
+    $conditions = [];
+    $filters = [];
 
-// Apply filters based on the selected values
-if ($filterCategory != 'All') {
-    $conditions[] = 'category = :category';
-    $filters['category'] = $filterCategory;
+    // Apply filters based on the selected values
+    if ($filterCategory != 'All') {
+        $conditions[] = 'category = :category';
+        $filters['category'] = $filterCategory;
+    }
+
+    if ($filterMonth != 'All') {
+        $conditions[] = 'MONTH(date) = :month';
+        $filters['month'] = $filterMonth;
+    }
+
+    if ($filterYear != 'All') {
+        $conditions[] = 'YEAR(date) = :year';
+        $filters['year'] = $filterYear;
+    }
+
+    $filters['customer_id'] = $_SESSION["customerDetails"][0]->customerID;
+
+    if (empty($conditions) || isset($_REQUEST["resetButton"])) {
+        $filterCategory = "All";
+        $filterMonth = "All";
+        $filterYear = "All";
+        $incomes = getAllIncomes($_SESSION["customerDetails"][0]->customerID);
+    } else {
+        $incomes = getIncomesDynamically($conditions, $filters);
+    }
+
+    require_once "../view/incomes_view.php";
 }
 
-if ($filterMonth != 'All') {
-    $conditions[] = 'MONTH(date) = :month';
-    $filters['month'] = $filterMonth;
+if (isset($_REQUEST["addIncomeButton"]))
+{
+    require_once "../view/addIncome_view.php";
 }
 
-if ($filterYear != 'All') {
-    $conditions[] = 'YEAR(date) = :year';
-    $filters['year'] = $filterYear;
-}
-
-$filters['customer_id'] = $_SESSION["customerDetails"][0]->customerID;
-
-if (empty($conditions) || isset($_REQUEST["resetButton"])) {
-    $filterCategory = "All";
-    $filterMonth = "All";
-    $filterYear = "All";
-    $incomes = getAllIncomes($_SESSION["customerDetails"][0]->customerID);
-} else {
-    $incomes = getIncomesDynamically($conditions, $filters);
-}
-
-require_once "../view/incomes_view.php";
 ?>

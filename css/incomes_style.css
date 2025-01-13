@@ -1,14 +1,26 @@
-.incomePage
-{
+.incomePage {
     display: flex;
     padding-top: 1%;
-    gap:17%;
+    gap: 2%;
+}
+
+#incomeDisplay,
+#rightSide {
+    flex: 1;
+    max-width: 50%;
+}
+
+#rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10%;
 }
 
 #filterForm {
     display: flex;
     flex-wrap: wrap;
-    width: 120%;
+    width: 100%;
     gap: 2%;
     margin-bottom: 2%;
     padding:1%;
@@ -39,7 +51,7 @@
 }
 
 table {
-    width: 120%;
+    width: 100%;
     border-collapse: collapse;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
@@ -80,4 +92,19 @@ table .button {
 
 table .button:hover {
     background-color: #b02a37;
+}
+
+#addButton .button {
+    font-size: 18px; 
+    padding: 15px 30px; 
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer; 
+}
+
+#addButton .button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
 }

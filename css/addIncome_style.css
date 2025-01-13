@@ -1,0 +1,24 @@
+.topSection {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+#form {
+    float: left;
+    width: 42.5%;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+#backImage {
+    height: 300%;
+    width: 50px;
+}
+
+.backButton {
+    border: none;
+    width: 6%;
+    background-color: inherit;
+}

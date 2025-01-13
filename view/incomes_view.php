@@ -98,6 +98,11 @@
         </div>
         <div id="rightSide">
             <div id = "verticalBarChart"></div>
+            <div id = "addButton">
+                <form method="post" action="incomes_controller.php">
+                    <input type="submit" value="Add Income" name="addIncomeButton" class="button">
+                </form>
+            </div>
         </div>
     </div>
 </body>

@@ -17,11 +17,11 @@ function incomesVerticalBarChart(dashboardBarData) {
         backgroundColor: "transparent",
         animationEnabled: true,
         title: {
-            text: "Revenue Chart of Acme Corporation",
+            text: "Incomes Monthly Chart",
             fontColor: "white"
         },
         axisY: {
-            title: "Revenue (in USD)",
+            title: "Income(£)",
             titleFontColor: "white",
             labelFontColor: "white",
             includeZero: true,
@@ -29,7 +29,8 @@ function incomesVerticalBarChart(dashboardBarData) {
             suffix: "k"
         },
         axisX: {
-            labelFontColor: "white"
+            labelFontColor: "white",
+            interval: 1
         },
         data: [{
             type: "bar",
