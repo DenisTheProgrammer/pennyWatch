@@ -110,7 +110,13 @@ function getIncomesDynamically($conditions, $filters)
 
 
 //these are functions for the cost database
-
+function getAllCosts($customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM cost WHERE customerID = ?");
+    $statement->execute([$customerID]);
+    return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
+}
 
 function getCostsByMonth($month, $year, $customerID)
 {
@@ -127,5 +133,22 @@ function getTotalCostByMonth($month, $year, $customerID)
     $statement->execute([$year, $month, $customerID]);
     $totalCost = $statement->fetchColumn();
     return $totalCost ?: 0; // return 0 if result is null or 0
+}
+
+function addCost($cost, $customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("INSERT INTO cost (costReference, costAmount, category, date, recurring, customerID) VALUES(?,?,?,?,?,?)");
+    $statement->execute([$cost->costReference, $cost->costAmount, $cost->category, $cost->date, $cost->recurring, $customerID]);
+}
+
+function getCostsDynamically($conditions, $filters)
+{
+    global $pdo;
+    $sql = "SELECT * FROM cost WHERE customerID = :customer_id";
+    $sql .= ' AND ' . implode(' AND ', $conditions);
+    $statement = $pdo->prepare($sql);
+    $statement->execute($filters);
+    return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
 }
 ?>
