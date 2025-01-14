@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 require_once "../model/dataAccess.php";
 require_once "../model/income.php";
 require_once "../model/customer.php";

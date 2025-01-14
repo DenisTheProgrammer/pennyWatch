@@ -25,8 +25,8 @@ function incomesVerticalBarChart(dashboardBarData) {
             titleFontColor: "white",
             labelFontColor: "white",
             includeZero: true,
-            prefix: "$",
-            suffix: "k"
+            prefix: "£",
+            suffix: ""
         },
         axisX: {
             labelFontColor: "white",
@@ -34,7 +34,7 @@ function incomesVerticalBarChart(dashboardBarData) {
         },
         data: [{
             type: "bar",
-            yValueFormatString: "$#,##0K",
+            yValueFormatString: "£#,##0",
             indexLabel: "{y}",
             indexLabelPlacement: "inside",
             indexLabelFontWeight: "bolder",

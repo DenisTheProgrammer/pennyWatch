@@ -111,6 +111,7 @@ function getIncomesDynamically($conditions, $filters)
 
 //these are functions for the cost database
 
+
 function getCostsByMonth($month, $year, $customerID)
 {
     global $pdo;

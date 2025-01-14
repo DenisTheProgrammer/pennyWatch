@@ -27,7 +27,7 @@ function dashboardPieChart(dashboardPieData)
         }],
         data: [{
             type: "pie",
-            indexLabel: "{label}: {y}",
+            indexLabel: "{label}: £{y}",
             indexLabelFontColor: "white",
             dataPoints: dashboardPieData
         }]
@@ -56,7 +56,7 @@ function dashboardColumnChart(dashboardColumnData)
         },
         data: [{
             type: "column",
-            yValueFormatString: "#,##0.## £",
+            yValueFormatString: "£#,##0.##",
             dataPoints: dashboardColumnData
         }]
     });
