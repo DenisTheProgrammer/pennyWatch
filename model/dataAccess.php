@@ -91,6 +91,13 @@ function getTotalIncomeByMonth($month, $year, $customerID)
     return $totalIncome ?: 0; // return 0 if result is null or 0
 }
 
+function addIncome($income, $customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("INSERT INTO income (incomeReference, incomeAmount, category, date, recurring, customerID) VALUES(?,?,?,?,?,?)");
+    $statement->execute([$income->incomeReference, $income->incomeAmount, $income->category, $income->date, $income->recurring, $customerID]);
+}
+
 function getIncomesDynamically($conditions, $filters)
 {
     global $pdo;
