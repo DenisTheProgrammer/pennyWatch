@@ -8,22 +8,22 @@
 
     <body>
         <div class = "topSection">
-            <form method = "post" action = "../controller/incomes_controller.php" id = "form">
+            <form method = "post" action = "../controller/costs_controller.php" id = "form">
                 <button type="submit" class="backButton" name = "backButton">
                     <img src = "../images/backButton.png" id = "backImage" alt = "back button">
                 </button>
             </form>
 
-            <h1 id = "title">Add Income</h1>
+            <h1 id = "title">Add Cost</h1>
         </div>
         <div class = "form">
             <div id = "details">
-                <form name = "addIncomeForm" method="post" action = "incomes_controller.php">
+                <form name = "addCostForm" method="post" action = "costs_controller.php">
                     <label for="reference">Reference</label><br>
-                    <input type="text" id = "incomeReference" name = "incomeReference"><br><br>
+                    <input type="text" id = "costReference" name = "costReference"><br><br>
 
                     <label for="amount">Amount</label><br>
-                    <input type="text" id = "incomeAmount" name = "incomeAmount"><br><br>
+                    <input type="text" id = "costAmount" name = "costAmount"><br><br>
 
                     <label for="category">Category</label><br>
                     <input list = "categories" name = "category" id = "category"><br><br>

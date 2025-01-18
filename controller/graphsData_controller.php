@@ -34,12 +34,23 @@
         );
     }
 
+    $dataCostsBarChart = array();
+
+    for ($i = 1; $i <= count($months); $i++)
+    {
+        $dataCostsBarChart[] = array(
+            "y" => getTotalCostByMonth($i, 2024, $_SESSION["customerDetails"][0]->customerID),
+            "label" => $months[$i-1]
+        );
+    }
+
     
     // Combine data series into one response
     $data = array(
         "dashboardPieChart" => $dataDashboardPieChart,
         "dashboardColumnChart" => $dataDashboardColumnChart,
-        "incomesBarChart" => $dataIncomesBarChart
+        "incomesBarChart" => $dataIncomesBarChart,
+        "costsBarChart" => $dataCostsBarChart
     );
     
     // Send the JSON response

@@ -6,7 +6,7 @@
     <title>Incomes</title>
     <link rel="stylesheet" type = "text/css" href="../css/main.css">
     <link rel="stylesheet" type = "text/css" href="../css/navBar.css">
-    <link rel="stylesheet" type = "text/css" href = "../css//incomes_style.css">
+    <link rel="stylesheet" type = "text/css" href = "../css/incomesCosts_style.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
 
     <script src="../javascript/incomes_script.js"></script>

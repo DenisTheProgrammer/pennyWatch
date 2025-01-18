@@ -1,3 +1,75 @@
 <?php
-require_once ("../view/costs_view.php");
+
+require_once "../model/dataAccess.php";
+require_once "../model/cost.php";
+require_once "../model/customer.php";
+session_start();
+
+if (!isset($_REQUEST["addCostButton"]) && !isset($_REQUEST["confirmDetails"]))
+{
+    // Get the filter values from POST or set defaults
+    $filterCategory = $_POST['filterCategory'] ?? 'All';
+    $filterMonth = $_POST['filterMonth'] ?? 'All';
+    $filterYear = $_POST['filterYear'] ?? 'All';
+
+    // Initialize the conditions array
+    $conditions = [];
+    $filters = [];
+
+    // Apply filters based on the selected values
+    if ($filterCategory != 'All') {
+        $conditions[] = 'category = :category';
+        $filters['category'] = $filterCategory;
+    }
+
+    if ($filterMonth != 'All') {
+        $conditions[] = 'MONTH(date) = :month';
+        $filters['month'] = $filterMonth;
+    }
+
+    if ($filterYear != 'All') {
+        $conditions[] = 'YEAR(date) = :year';
+        $filters['year'] = $filterYear;
+    }
+
+    $filters['customer_id'] = $_SESSION["customerDetails"][0]->customerID;
+
+    if (empty($conditions) || isset($_REQUEST["resetButton"])) {
+        $filterCategory = "All";
+        $filterMonth = "All";
+        $filterYear = "All";
+        $costs = getAllCosts($_SESSION["customerDetails"][0]->customerID);
+    } else {
+        $costs = getCostsDynamically($conditions, $filters);
+    }
+
+    require_once "../view/costs_view.php";
+}
+
+if (isset($_REQUEST["addCostButton"]))
+{
+    require_once "../view/addCost_view.php";
+}
+
+if(isset($_REQUEST["confirmDetails"]))
+{
+    $cost = new Cost();
+    $cost->costReference = $_REQUEST["costReference"];
+    $cost->costAmount = $_REQUEST["costAmount"];
+    $cost->category = $_REQUEST["category"];
+    $cost->date = $_REQUEST["date"];
+    if(!isset($_REQUEST["recurring"]))
+    {
+        $cost->recurring = 0;
+    }
+    else
+    {
+        $cost->recurring = 1;
+    }
+
+    addCost($cost, $_SESSION["customerDetails"][0]->customerID);
+
+    require_once "../view/addCost_view.php";
+}
+
 ?>

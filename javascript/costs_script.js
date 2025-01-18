@@ -1,6 +1,6 @@
 import { pagination } from "./pagination";
 
-document.addEventListener("DOMContentLoaded", pagination(9, "incomeTable"));
+document.addEventListener("DOMContentLoaded", pagination(9, "costTable"));
 function filterDisplay()
 {
     const form = document.getElementById('filterForm');
