@@ -3,13 +3,13 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Costd</title>
+    <title>Costs</title>
     <link rel="stylesheet" type = "text/css" href="../css/main.css">
     <link rel="stylesheet" type = "text/css" href="../css/navBar.css">
     <link rel="stylesheet" type = "text/css" href = "../css/incomesCosts_style.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
 
-    <script src="../javascript/costs_script.js"></script>
+    <script type="module" src="../javascript/costs_script.js"></script>
     <script src="../javascript/costsGraphs_script.js"></script>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     </head>

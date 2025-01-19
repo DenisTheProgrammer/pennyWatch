@@ -1,6 +1,6 @@
-export function pagination(rows,tableName)
+export function pagination(rowsPage,tableName)
 {
-    const rowsPerPage = rows;
+    const rowsPerPage = rowsPage;
     let currentPage = 1;
 
     // Get all table rows

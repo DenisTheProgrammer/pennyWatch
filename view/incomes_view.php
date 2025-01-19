@@ -9,7 +9,7 @@
     <link rel="stylesheet" type = "text/css" href = "../css/incomesCosts_style.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/charts_style.css">
 
-    <script src="../javascript/incomes_script.js"></script>
+    <script type="module" src="../javascript/incomes_script.js"></script>
     <script src="../javascript/incomesGraphs_script.js"></script>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 </head>
