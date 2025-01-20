@@ -6,7 +6,10 @@ class Goal
     private $goalType;
     private $goalAmount;
     private $recurring;
+    private $recurringAmount;
     private $recurringInterval;
+    private $weeklyDay;
+    private $monthlyDay;
     private $dateCreated;
     private $lastPaymentAmount;
     private $lastPaymentDate;

@@ -3,6 +3,7 @@
     <head>
         <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/navBar.css">
+        <link rel = "stylesheet" type = "text/css" href = "../css/savings_style.css">
         <script src="../javascript/savings_script.js"></script>
     </head>
     <body>
@@ -20,8 +21,56 @@
         </div>
 
         <div class="savingsPage">
-            <div id="savingsLeftDisplay">
+            <div id="savingsTopDisplay">
+                <div id = "goalSummary">
+                    <table id = "goalTable">
+                        <thead>
+                            <tr>
+                                <th>Goal Name</th>
+                                <th>Target</th>
+                                <th>Saved</th>
+                                <th>Last Payment</th>
+                                <th>Recurring Amount</th>
+                                <th>Next Payment</th>
+                                <th>Date Created</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($goals as $goal): ?>
+                            <tr>
+                                <td><?= $goal->goalName ?></td>
+                                <td>£<?= $goal->goalTarget ?></td>
+                                <td><?= $goal->goalAmount ?></td>
+                                <td><?= $goal->lastPaymentAmount ?></td>
+                                <td><?= $goal->recurringAmount ?></td>
+                                <td>TBC</td>
+                                <td><?= $goal->dateCreated ?></td>
+                                <td>
+                                    <form method="post" action="savings_controller.php">
+                                        <input type="text" name="paymentInput" placeholder="Enter amount to pay...">
+                                        <button type="submit" class="payButton" name = "payButton">
+                                            <img src = "../images/addButton.png" id = "payImage" alt = "pay button">
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <button type="submit" class="deleteButton" name = "deleteButton">
+                                        <img src = "../images/deleteButton.png" id = "deleteImage" alt = "delete button">
+                                    </button>
+                                    <input type="hidden" value="<?= $goal->goalID ?>" name="IDPass">
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="savingsBottomDisplay">
                 <div id = "showSummary">
+                    <h2>Disposable Income Breakdown</h2>
                     <form id="filterForm" method="post" action="savings_controller.php">
                         <label for="filterMonth">Filter by Month:</label>
                         <select id="filterMonth" name="filterMonth" onchange="filterDisplay()">
@@ -48,45 +97,17 @@
                         </select>
                     </form>
 
-                    <h2>Savings</h2>
                     <p>Total Income: £<?=$totalIncome?></p>
                     <p>Total Spent: £<?=$totalCost?></p>
                     <p>Total Disposable Income: £<?=$disposableIncome?></p>
                 </div>
-                <div id="goalPay">
-                </div>
-            </div>
-            <div id="savingsRightDisplay">
-                <div id = "goalSummary">
-                    <table id = "incomeTable">
-                    <thead>
-                        <tr>
-                            <th>Goal Name</th>
-                            <th>Target</th>
-                            <th>Saved</th>
-                            <th>Date Created</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($goals as $goal): ?>
-                        <tr>
-                            <td><?= $goal->goalName ?></td>
-                            <td>£<?= $goal->goalTarget ?></td>
-                            <td><?= $goal->goalAmount ?></td>
-                            <td><?= $goal->dateCreated ?></td>
-                            <td>
-                                <form method="post" action="savings_controller.php">
-                                <button type="submit" class="deleteButton" name = "deleteButton">
-                                    <img src = "../images/deleteButton.png" id = "deleteImage" alt = "delete button">
-                                </button>
-                                    <input type="hidden" value="<?= $goal->goalID ?>" name="IDPass">
-                                </form>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+            
+                <div id="savingsAddButton">
+                    <div id = "addButton">
+                        <form method="post" action="savings_controller.php">
+                            <input type="submit" value="Add Goal" name="addGoalButton" class="button">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
