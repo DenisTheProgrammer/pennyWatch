@@ -32,9 +32,9 @@ else if(isset($_REQUEST["confirmDetails"]))
 else
 {
     // Get the filter values from POST or set defaults
-    $filterCategory = $_POST['filterCategory'] ?? 'All';
-    $filterMonth = $_POST['filterMonth'] ?? 'All';
-    $filterYear = $_POST['filterYear'] ?? 'All';
+    $filterCategory = $_REQUEST['filterCategory'] ?? 'All';
+    $filterMonth = $_REQUEST['filterMonth'] ?? 'All';
+    $filterYear = $_REQUEST['filterYear'] ?? 'All';
 
     // Initialize the conditions array
     $conditions = [];

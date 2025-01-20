@@ -7,7 +7,8 @@ function calculateDisposableIncome($month, $year)
 {
     $monthlyIncome = getTotalIncomeByMonth($month, $year, $_SESSION["customerDetails"][0]->customerID);
     $monthlyCost = getTotalCostByMonth($month, $year, $_SESSION["customerDetails"][0]->customerID);
-    return $monthlyIncome - $monthlyCost;
+    $disposableIncome = $monthlyIncome - $monthlyCost;
+    return number_format((double)$disposableIncome, 2, '.', '');
 }
 
 function getFeedbackMessage($disposableIncome)

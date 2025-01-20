@@ -82,7 +82,7 @@
                         <?php foreach($costs as $cost): ?>
                         <tr>
                             <td><?= $cost->costReference ?></td>
-                            <td><?= $cost->costAmount ?></td>
+                            <td>£<?= $cost->costAmount ?></td>
                             <td><?= $cost->category ?></td>
                             <td><?= $cost->date ?></td>
                             <td>

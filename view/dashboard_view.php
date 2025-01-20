@@ -28,7 +28,7 @@
             <div id="columnChartContainer"></div>
         </div>
 
-        <p id="conclusionText">Your disposable income this month is: <?= $disposableIncome; ?></p>
+        <p id="conclusionText">Your disposable income this month is: £<?= $disposableIncome; ?></p>
         <p id="message"><?= $message; ?></p>
 
     </body>
