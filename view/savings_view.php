@@ -53,6 +53,41 @@
                     <p>Total Spent: £<?=$totalCost?></p>
                     <p>Total Disposable Income: £<?=$disposableIncome?></p>
                 </div>
+                <div id="goalPay">
+                </div>
+            </div>
+            <div id="savingsRightDisplay">
+                <div id = "goalSummary">
+                    <table id = "incomeTable">
+                    <thead>
+                        <tr>
+                            <th>Goal Name</th>
+                            <th>Target</th>
+                            <th>Saved</th>
+                            <th>Date Created</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($goals as $goal): ?>
+                        <tr>
+                            <td><?= $goal->goalName ?></td>
+                            <td>£<?= $goal->goalTarget ?></td>
+                            <td><?= $goal->goalAmount ?></td>
+                            <td><?= $goal->dateCreated ?></td>
+                            <td>
+                                <form method="post" action="savings_controller.php">
+                                <button type="submit" class="deleteButton" name = "deleteButton">
+                                    <img src = "../images/deleteButton.png" id = "deleteImage" alt = "delete button">
+                                </button>
+                                    <input type="hidden" value="<?= $goal->goalID ?>" name="IDPass">
+                                </form>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                </div>
             </div>
         </div>
     </div>

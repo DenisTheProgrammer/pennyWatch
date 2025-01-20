@@ -165,4 +165,14 @@ function deleteCost($costID, $customerID)
     $statement = $pdo->prepare("DELETE FROM cost WHERE costID =? AND customerID =?");
     $statement->execute([$costID, $customerID]);
 }
+
+//these are functions for the goals database
+
+function getAllGoals($customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM goal WHERE customerID = ?");
+    $statement->execute([$customerID]);
+    return $statement->fetchAll(PDO::FETCH_CLASS, "Goal");
+}
 ?>
