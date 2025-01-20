@@ -5,7 +5,31 @@ require_once "../model/cost.php";
 require_once "../model/customer.php";
 session_start();
 
-if (!isset($_REQUEST["addCostButton"]) && !isset($_REQUEST["confirmDetails"]))
+if (isset($_REQUEST["addCostButton"]))
+{
+    require_once "../view/addCost_view.php";
+}
+else if(isset($_REQUEST["confirmDetails"]))
+{
+    $cost = new Cost();
+    $cost->costReference = $_REQUEST["costReference"];
+    $cost->costAmount = $_REQUEST["costAmount"];
+    $cost->category = $_REQUEST["category"];
+    $cost->date = $_REQUEST["date"];
+    if(!isset($_REQUEST["recurring"]))
+    {
+        $cost->recurring = 0;
+    }
+    else
+    {
+        $cost->recurring = 1;
+    }
+
+    addCost($cost, $_SESSION["customerDetails"][0]->customerID);
+
+    require_once "../view/addCost_view.php";
+}
+else
 {
     // Get the filter values from POST or set defaults
     $filterCategory = $_POST['filterCategory'] ?? 'All';
@@ -43,33 +67,13 @@ if (!isset($_REQUEST["addCostButton"]) && !isset($_REQUEST["confirmDetails"]))
         $costs = getCostsDynamically($conditions, $filters);
     }
 
+    if(isset($_REQUEST["deleteButton"]))
+    {
+        deleteCost($_REQUEST["IDPass"], $_SESSION["customerDetails"][0]->customerID);
+        $costs = getAllCosts($_SESSION["customerDetails"][0]->customerID); //get all costs again to preserve pagination
+    }
+
     require_once "../view/costs_view.php";
-}
-
-if (isset($_REQUEST["addCostButton"]))
-{
-    require_once "../view/addCost_view.php";
-}
-
-if(isset($_REQUEST["confirmDetails"]))
-{
-    $cost = new Cost();
-    $cost->costReference = $_REQUEST["costReference"];
-    $cost->costAmount = $_REQUEST["costAmount"];
-    $cost->category = $_REQUEST["category"];
-    $cost->date = $_REQUEST["date"];
-    if(!isset($_REQUEST["recurring"]))
-    {
-        $cost->recurring = 0;
-    }
-    else
-    {
-        $cost->recurring = 1;
-    }
-
-    addCost($cost, $_SESSION["customerDetails"][0]->customerID);
-
-    require_once "../view/addCost_view.php";
 }
 
 ?>

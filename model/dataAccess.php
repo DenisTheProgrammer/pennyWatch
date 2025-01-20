@@ -108,6 +108,13 @@ function getIncomesDynamically($conditions, $filters)
     return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
 }
 
+function deleteIncome($incomeID, $customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("DELETE FROM income WHERE incomeID =? AND customerID =?");
+    $statement->execute([$incomeID, $customerID]);
+}
+
 
 //these are functions for the cost database
 function getAllCosts($customerID)
@@ -150,5 +157,12 @@ function getCostsDynamically($conditions, $filters)
     $statement = $pdo->prepare($sql);
     $statement->execute($filters);
     return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
+}
+
+function deleteCost($costID, $customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("DELETE FROM cost WHERE costID =? AND customerID =?");
+    $statement->execute([$costID, $customerID]);
 }
 ?>

@@ -5,7 +5,31 @@ require_once "../model/income.php";
 require_once "../model/customer.php";
 session_start();
 
-if (!isset($_REQUEST["addIncomeButton"]) && !isset($_REQUEST["confirmDetails"]))
+if (isset($_REQUEST["addIncomeButton"]))
+{
+    require_once "../view/addIncome_view.php";
+}
+else if(isset($_REQUEST["confirmDetails"]))
+{
+    $income = new Income();
+    $income->incomeReference = $_REQUEST["incomeReference"];
+    $income->incomeAmount = $_REQUEST["incomeAmount"];
+    $income->category = $_REQUEST["category"];
+    $income->date = $_REQUEST["date"];
+    if(!isset($_REQUEST["recurring"]))
+    {
+        $income->recurring = 0;
+    }
+    else
+    {
+        $income->recurring = 1;
+    }
+
+    addIncome($income, $_SESSION["customerDetails"][0]->customerID);
+
+    require_once "../view/addIncome_view.php";
+}
+else
 {
     // Get the filter values from POST or set defaults
     $filterCategory = $_POST['filterCategory'] ?? 'All';
@@ -43,33 +67,13 @@ if (!isset($_REQUEST["addIncomeButton"]) && !isset($_REQUEST["confirmDetails"]))
         $incomes = getIncomesDynamically($conditions, $filters);
     }
 
+    if(isset($_REQUEST["deleteButton"]))
+    {
+        deleteIncome($_REQUEST["IDPass"], $_SESSION["customerDetails"][0]->customerID);
+        $incomes = getAllIncomes($_SESSION["customerDetails"][0]->customerID); //get all incomes again to preserve pagination
+    }
+
     require_once "../view/incomes_view.php";
-}
-
-if (isset($_REQUEST["addIncomeButton"]))
-{
-    require_once "../view/addIncome_view.php";
-}
-
-if(isset($_REQUEST["confirmDetails"]))
-{
-    $income = new Income();
-    $income->incomeReference = $_REQUEST["incomeReference"];
-    $income->incomeAmount = $_REQUEST["incomeAmount"];
-    $income->category = $_REQUEST["category"];
-    $income->date = $_REQUEST["date"];
-    if(!isset($_REQUEST["recurring"]))
-    {
-        $income->recurring = 0;
-    }
-    else
-    {
-        $income->recurring = 1;
-    }
-
-    addIncome($income, $_SESSION["customerDetails"][0]->customerID);
-
-    require_once "../view/addIncome_view.php";
 }
 
 ?>
