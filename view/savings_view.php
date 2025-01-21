@@ -45,7 +45,7 @@
                                 <td><?= $goal->goalAmount ?></td>
                                 <td><?= $goal->lastPaymentAmount ?></td>
                                 <td><?= $goal->recurringAmount ?></td>
-                                <td>TBC</td>
+                                <td><?=$goal->calculateNextPayment()?></td>
                                 <td><?= $goal->dateCreated ?></td>
                                 <td>
                                     <form method="post" action="savings_controller.php">
