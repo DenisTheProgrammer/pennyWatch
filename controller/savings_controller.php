@@ -15,10 +15,9 @@ if(isset($_REQUEST["payButton"]))
 {
     $goal = getGoalById($_REQUEST["IDPass"]);
     $goalAmount = $goal->goalAmount + (double)$_REQUEST["paymentInput"];
-    print_r($goalAmount);
     addNewGoalPayment($_REQUEST["paymentInput"], date('Y-m-d'), $_REQUEST["IDPass"], $goalAmount);
     $cost = new Cost();
-    $cost->costReference = "Goal Payment: " . $goal->goalName;
+    $cost->costReference = "Goal Payment: " . $goal->goalName . "-" . $goal->goalID;
     $cost->costAmount = $_REQUEST["paymentInput"];
     $cost->category = "Goal";
     $cost->date = date('Y-m-d');

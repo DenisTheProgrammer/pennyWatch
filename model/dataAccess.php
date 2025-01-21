@@ -159,6 +159,14 @@ function getCostsDynamically($conditions, $filters)
     return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
 }
 
+function getCostByID($costID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM cost WHERE costID =?");
+    $statement->execute([$costID]);
+    return $statement->fetchObject("Cost");
+}
+
 function deleteCost($costID)
 {
     global $pdo;

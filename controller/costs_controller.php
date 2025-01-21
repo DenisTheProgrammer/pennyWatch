@@ -3,6 +3,7 @@
 require_once "../model/dataAccess.php";
 require_once "../model/cost.php";
 require_once "../model/customer.php";
+require_once "../model/goal.php";
 session_start();
 
 if (isset($_REQUEST["addCostButton"]))
@@ -69,7 +70,20 @@ else
 
     if(isset($_REQUEST["deleteButton"]))
     {
-        deleteCost($_REQUEST["IDPass"]);
+        $cost = getCostByID($_REQUEST["IDPass"]);
+        if($cost->category == "Goal")
+        {
+            list($goalName, $goalID) = explode("-", str_replace("Goal Payment: ", "", $cost->costReference));
+            $goal = getGoalById($goalID);
+            $goalAmount = $goal->goalAmount - (double)$cost->costAmount;
+            addNewGoalPayment((double)$cost->costAmount*-1, date('Y-m-d'), $goalID, $goalAmount);
+            deleteCost($_REQUEST["IDPass"]);
+        }
+        else
+        {
+            deleteCost($_REQUEST["IDPass"]);
+        }
+
         $costs = getAllCosts($_SESSION["customerDetails"][0]->customerID); //get all costs again to preserve pagination
     }
 
