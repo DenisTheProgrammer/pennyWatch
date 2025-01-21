@@ -1,15 +1,29 @@
 <?php
 require_once "../controller/financeFunctions.php";
 require_once "../model/goal.php";
+require_once "../model/cost.php";
 
 $filterMonth = $_REQUEST['filterMonth'] ?? ltrim(date("m"), "0");
 $filterYear = $_REQUEST['filterYear'] ?? date("Y");
 
+
+if(isset($_REQUEST["payButton"]))
+{
+    addNewGoalPayment($_REQUEST["paymentInput"], date('Y-m-d'), $_REQUEST["IDPass"]);
+    $goalName = getGoalById($_REQUEST["IDPass"])->goalName;
+    $cost = new Cost();
+    $cost->costReference = "Goal Payment: " . $goalName;
+    $cost->costAmount = $_REQUEST["paymentInput"];
+    $cost->category = "Goal";
+    $cost->date = date('Y-m-d');
+    $cost->recurring = 0;
+    $cost->customerID = $_SESSION["customerDetails"][0]->customerID;
+    addCost($cost, $_SESSION["customerDetails"][0]->customerID);
+}
+$goals = getAllGoals($_SESSION["customerDetails"][0]->customerID);
 $totalIncome = getTotalIncomeByMonth($filterMonth, $filterYear, $_SESSION["customerDetails"][0]->customerID);
 $totalCost = getTotalCostByMonth($filterMonth, $filterYear, $_SESSION["customerDetails"][0]->customerID);
 $disposableIncome = calculateDisposableIncome($filterMonth, $filterYear);
-
-$goals = getAllGoals($_SESSION["customerDetails"][0]->customerID);
 
 
 require_once "../view/savings_view.php";

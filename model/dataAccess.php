@@ -167,6 +167,13 @@ function deleteCost($costID, $customerID)
 }
 
 //these are functions for the goals database
+function getGoalById($goalID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM goal WHERE goalID =?");
+    $statement->execute([$goalID]);
+    return $statement->fetchObject("Goal");
+}
 
 function getAllGoals($customerID)
 {
@@ -174,5 +181,12 @@ function getAllGoals($customerID)
     $statement = $pdo->prepare("SELECT * FROM goal WHERE customerID = ?");
     $statement->execute([$customerID]);
     return $statement->fetchAll(PDO::FETCH_CLASS, "Goal");
+}
+
+function addNewGoalPayment($goalPayment, $paymentDate, $goalID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("UPDATE goal SET lastPaymentAmount = ?, lastPaymentDate = ? WHERE goalID = ?");
+    $statement->execute([$goalPayment, $paymentDate, $goalID]);
 }
 ?>

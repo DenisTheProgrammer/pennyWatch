@@ -48,18 +48,21 @@
                                 <td><?=$goal->calculateNextPayment()?></td>
                                 <td><?= $goal->dateCreated ?></td>
                                 <td>
-                                    <form method="post" action="savings_controller.php">
-                                        <input type="text" name="paymentInput" placeholder="Enter amount to pay...">
+                                    <form id ="paymentForm" method="post" action="savings_controller.php" onsubmit="checkPayment()">
+                                        <input type="text" name="paymentInput" id = "paymentInput" placeholder="Enter amount to pay...">
                                         <button type="submit" class="payButton" name = "payButton">
                                             <img src = "../images/addButton.png" id = "payImage" alt = "pay button">
                                         </button>
+                                        <input type="hidden" value="<?= $goal->goalID ?>" name="IDPass">
                                     </form>
                                 </td>
                                 <td>
-                                    <button type="submit" class="deleteButton" name = "deleteButton">
-                                        <img src = "../images/deleteButton.png" id = "deleteImage" alt = "delete button">
-                                    </button>
-                                    <input type="hidden" value="<?= $goal->goalID ?>" name="IDPass">
+                                    <form method="post" action="savings_controller.php">
+                                        <button type="submit" class="deleteButton" name = "deleteButton">
+                                            <img src = "../images/deleteButton.png" id = "deleteImage" alt = "delete button">
+                                        </button>
+                                        <input type="hidden" value="<?= $goal->goalID ?>" name="IDPass">
+                                    </form>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -99,7 +102,7 @@
 
                     <p>Total Income: £<?=$totalIncome?></p>
                     <p>Total Spent: £<?=$totalCost?></p>
-                    <p>Total Disposable Income: £<?=$disposableIncome?></p>
+                    <p id="disposableIncome" data-disposable-income="<?=$disposableIncome?>">Total Disposable Income: £<?=$disposableIncome?></p>
                 </div>
             
                 <div id="savingsAddButton">
