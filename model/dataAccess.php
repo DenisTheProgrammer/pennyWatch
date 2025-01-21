@@ -183,10 +183,10 @@ function getAllGoals($customerID)
     return $statement->fetchAll(PDO::FETCH_CLASS, "Goal");
 }
 
-function addNewGoalPayment($goalPayment, $paymentDate, $goalID)
+function addNewGoalPayment($goalPayment, $paymentDate, $goalID, $goalAmount)
 {
     global $pdo;
-    $statement = $pdo->prepare("UPDATE goal SET lastPaymentAmount = ?, lastPaymentDate = ? WHERE goalID = ?");
-    $statement->execute([$goalPayment, $paymentDate, $goalID]);
+    $statement = $pdo->prepare("UPDATE goal SET lastPaymentAmount = ?, lastPaymentDate = ?, goalAmount = ? WHERE goalID = ?");
+    $statement->execute([$goalPayment, $paymentDate, $goalAmount, $goalID]);
 }
 ?>

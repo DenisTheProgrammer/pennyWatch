@@ -9,10 +9,12 @@ $filterYear = $_REQUEST['filterYear'] ?? date("Y");
 
 if(isset($_REQUEST["payButton"]))
 {
-    addNewGoalPayment($_REQUEST["paymentInput"], date('Y-m-d'), $_REQUEST["IDPass"]);
-    $goalName = getGoalById($_REQUEST["IDPass"])->goalName;
+    $goal = getGoalById($_REQUEST["IDPass"]);
+    $goalAmount = $goal->goalAmount + (double)$_REQUEST["paymentInput"];
+    print_r($goalAmount);
+    addNewGoalPayment($_REQUEST["paymentInput"], date('Y-m-d'), $_REQUEST["IDPass"], $goalAmount);
     $cost = new Cost();
-    $cost->costReference = "Goal Payment: " . $goalName;
+    $cost->costReference = "Goal Payment: " . $goal->goalName;
     $cost->costAmount = $_REQUEST["paymentInput"];
     $cost->category = "Goal";
     $cost->date = date('Y-m-d');
