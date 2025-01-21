@@ -6,6 +6,10 @@ require_once "../model/cost.php";
 $filterMonth = $_REQUEST['filterMonth'] ?? ltrim(date("m"), "0");
 $filterYear = $_REQUEST['filterYear'] ?? date("Y");
 
+if(isset($_REQUEST["deleteButton"]))
+{
+    deleteGoal($_REQUEST["IDPass"]);
+}
 
 if(isset($_REQUEST["payButton"]))
 {

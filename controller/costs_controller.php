@@ -69,7 +69,7 @@ else
 
     if(isset($_REQUEST["deleteButton"]))
     {
-        deleteCost($_REQUEST["IDPass"], $_SESSION["customerDetails"][0]->customerID);
+        deleteCost($_REQUEST["IDPass"]);
         $costs = getAllCosts($_SESSION["customerDetails"][0]->customerID); //get all costs again to preserve pagination
     }
 

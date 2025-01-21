@@ -108,11 +108,11 @@ function getIncomesDynamically($conditions, $filters)
     return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
 }
 
-function deleteIncome($incomeID, $customerID)
+function deleteIncome($incomeID)
 {
     global $pdo;
-    $statement = $pdo->prepare("DELETE FROM income WHERE incomeID =? AND customerID =?");
-    $statement->execute([$incomeID, $customerID]);
+    $statement = $pdo->prepare("DELETE FROM income WHERE incomeID =?");
+    $statement->execute([$incomeID]);
 }
 
 
@@ -159,11 +159,11 @@ function getCostsDynamically($conditions, $filters)
     return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
 }
 
-function deleteCost($costID, $customerID)
+function deleteCost($costID)
 {
     global $pdo;
-    $statement = $pdo->prepare("DELETE FROM cost WHERE costID =? AND customerID =?");
-    $statement->execute([$costID, $customerID]);
+    $statement = $pdo->prepare("DELETE FROM cost WHERE costID =?");
+    $statement->execute([$costID]);
 }
 
 //these are functions for the goals database
@@ -188,5 +188,11 @@ function addNewGoalPayment($goalPayment, $paymentDate, $goalID, $goalAmount)
     global $pdo;
     $statement = $pdo->prepare("UPDATE goal SET lastPaymentAmount = ?, lastPaymentDate = ?, goalAmount = ? WHERE goalID = ?");
     $statement->execute([$goalPayment, $paymentDate, $goalAmount, $goalID]);
+}
+function deleteGoal($goalID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("DELETE FROM goal WHERE goalID =?");
+    $statement->execute([$goalID]);
 }
 ?>

@@ -69,7 +69,7 @@ else
 
     if(isset($_REQUEST["deleteButton"]))
     {
-        deleteIncome($_REQUEST["IDPass"], $_SESSION["customerDetails"][0]->customerID);
+        deleteIncome($_REQUEST["IDPass"]);
         $incomes = getAllIncomes($_SESSION["customerDetails"][0]->customerID); //get all incomes again to preserve pagination
     }
 
