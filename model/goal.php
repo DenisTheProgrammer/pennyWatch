@@ -3,7 +3,7 @@ class Goal
 {
     private $goalID;
     private $goalName;
-    private $goalType;
+    private $goalTarget;
     private $goalAmount;
     private $recurring;
     private $recurringAmount;

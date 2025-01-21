@@ -3,7 +3,6 @@
     <head>
         <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/addForm_style.css">
-        <script src = "../javascript/manageAccount_script.js"></script>
     </head>
 
     <body>

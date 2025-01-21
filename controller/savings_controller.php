@@ -6,30 +6,38 @@ require_once "../model/cost.php";
 $filterMonth = $_REQUEST['filterMonth'] ?? ltrim(date("m"), "0");
 $filterYear = $_REQUEST['filterYear'] ?? date("Y");
 
-if(isset($_REQUEST["deleteButton"]))
+if(isset($_REQUEST["addGoalButton"]))
 {
-    deleteGoal($_REQUEST["IDPass"]);
+    require_once "../view/addGoal_view.php";
 }
-
-if(isset($_REQUEST["payButton"]))
+else
 {
-    $goal = getGoalById($_REQUEST["IDPass"]);
-    $goalAmount = $goal->goalAmount + (double)$_REQUEST["paymentInput"];
-    addNewGoalPayment($_REQUEST["paymentInput"], date('Y-m-d'), $_REQUEST["IDPass"], $goalAmount);
-    $cost = new Cost();
-    $cost->costReference = "Goal Payment: " . $goal->goalName . "-" . $goal->goalID;
-    $cost->costAmount = $_REQUEST["paymentInput"];
-    $cost->category = "Goal";
-    $cost->date = date('Y-m-d');
-    $cost->recurring = 0;
-    $cost->customerID = $_SESSION["customerDetails"][0]->customerID;
-    addCost($cost, $_SESSION["customerDetails"][0]->customerID);
+    if(isset($_REQUEST["deleteButton"]))
+    {
+        deleteGoal($_REQUEST["IDPass"]);
+    }
+
+    if(isset($_REQUEST["payButton"]))
+    {
+        $goal = getGoalById($_REQUEST["IDPass"]);
+        $goalAmount = $goal->goalAmount + (double)$_REQUEST["paymentInput"];
+        addNewGoalPayment($_REQUEST["paymentInput"], date('Y-m-d'), $_REQUEST["IDPass"], $goalAmount);
+        $cost = new Cost();
+        $cost->costReference = "Goal Payment: " . $goal->goalName . "-" . $goal->goalID;
+        $cost->costAmount = $_REQUEST["paymentInput"];
+        $cost->category = "Goal";
+        $cost->date = date('Y-m-d');
+        $cost->recurring = 0;
+        $cost->customerID = $_SESSION["customerDetails"][0]->customerID;
+        addCost($cost, $_SESSION["customerDetails"][0]->customerID);
+    }
+
+    $goals = getAllGoals($_SESSION["customerDetails"][0]->customerID);
+    $totalIncome = getTotalIncomeByMonth($filterMonth, $filterYear, $_SESSION["customerDetails"][0]->customerID);
+    $totalCost = getTotalCostByMonth($filterMonth, $filterYear, $_SESSION["customerDetails"][0]->customerID);
+    $disposableIncome = calculateDisposableIncome($filterMonth, $filterYear);
+
+
+    require_once "../view/savings_view.php";
 }
-$goals = getAllGoals($_SESSION["customerDetails"][0]->customerID);
-$totalIncome = getTotalIncomeByMonth($filterMonth, $filterYear, $_SESSION["customerDetails"][0]->customerID);
-$totalCost = getTotalCostByMonth($filterMonth, $filterYear, $_SESSION["customerDetails"][0]->customerID);
-$disposableIncome = calculateDisposableIncome($filterMonth, $filterYear);
-
-
-require_once "../view/savings_view.php";
 ?>

@@ -32,7 +32,6 @@ else if(isset($_REQUEST["confirmDetails"]))
 }
 else
 {
-    // Get the filter values from POST or set defaults
     $filterCategory = $_REQUEST['filterCategory'] ?? 'All';
     $filterMonth = $_REQUEST['filterMonth'] ?? 'All';
     $filterYear = $_REQUEST['filterYear'] ?? 'All';
