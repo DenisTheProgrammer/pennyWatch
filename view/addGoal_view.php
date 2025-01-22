@@ -3,6 +3,8 @@
     <head>
         <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/addForm_style.css">
+
+        <script src="../javascript/addGoal_script.js"></script>
     </head>
 
     <body>
@@ -27,22 +29,33 @@
                     <input type="checkbox" id = "recurring" name = "recurring">
                     <label for="recurring">recurring</label><br><br>
 
-                    <label for="recurringAmount">Goal Target</label><br>
-                    <input type="text" id = "recurringAmount" name = "recurringAmount"><br><br>
+                    <div id = "recurringOptions">
+                        <label for="recurringAmount">Recurring Amount</label><br>
+                        <input type="text" id = "recurringAmount" name = "recurringAmount"><br><br>
 
-                    <label for="recurringInterval">Recurring Interval</label><br>
-                    <input list = "Intervals" name = "recurringInterval" id = "recurringInterval"><br><br>
+                        <label for="recurringInterval">Recurring Interval: </label>
+                        <select id="recurringInterval" name="recurringInterval" onchange="weeklyMonthlyToggle()">
+                            <option value="1">Weekly</option>
+                            <option value="2">Monthly</option>
+                        </select><br><br>
+                        <div id = "weeklyDay">
+                            <label for="weeklyDay">Preferred Weekly Day: </label>
+                            <select id="weeklyDay" name="weeklyDay">
+                                <option value="1">Monday</option>
+                                <option value="2">Tuesday</option>
+                                <option value="3">Wednesday</option>
+                                <option value="4">Thursday</option>
+                                <option value="5">Friday</option>
+                                <option value="6">Saturday</option>
+                                <option value="7">Sunday</option>
+                            </select><br><br>
+                        </div>
 
-                    <datalist id = "Intervals">
-                        <option value="1">Weekly</option>
-                        <option value="2">Monthly</option>
-                    </datalist>
-
-                    <label for="weeklyDay">Weekly Day</label><br>
-                    <input type="text" id = "weeklyDay" name = "weeklyDay"><br><br>
-
-                    <label for="monthlyDay">Weekly Day</label><br>
-                    <input type="text" id = "monthlyDay" name = "monthlyDay"><br><br>
+                        <div id = "monthlyDay">
+                            <label for="monthlyDay">Preferred Monthly Day (1-31)</label><br>
+                            <input type="text" id = "monthlyDay" name = "monthlyDay"><br><br>
+                        </div>
+                    </div>
 
                     <input type="submit" value = "Confirm Details" name = "confirmDetails" class = "button" id = "confirmDetails">
                 </form>
