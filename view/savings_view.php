@@ -43,7 +43,7 @@
                                 <td><?= $goal->goalName ?></td>
                                 <td>£<?= $goal->goalTarget ?></td>
                                 <td><?= $goal->goalAmount ?></td>
-                                <td><?= $goal->lastPaymentAmount ?></td>
+                                <td><?= $goal->displayLastPayment() ?></td>
                                 <td><?= $goal->recurringAmount ?></td>
                                 <td><?=$goal->calculateNextPayment()?></td>
                                 <td><?= $goal->dateCreated ?></td>

@@ -207,7 +207,7 @@ function deleteGoal($goalID)
 function addGoal($goal, $customerID)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO goal (goalName, goalTarget, goalAmount, recurring, recurringAmount, recurringInterval, weeklyDay, monthlyDay, lastPaymentAmount, lastPaymentDate, customerID) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute([$goal->goalName,$goal->goalTarget, $goal->goalAmount,$goal->recurring, $goal->recurringAmount, $goal->recurringInterval, $goal->weeklyDay, $goal->monthlyDay, $goal->lastPaymentAmount, $goal->lastPaymentDate, $customerID]);
+    $statement = $pdo->prepare("INSERT INTO goal (goalName, goalTarget, goalAmount, recurring, recurringAmount, recurringInterval, weeklyDay, monthlyDay, customerID) VALUES(?,?,?,?,?,?,?,?,?)");
+    $statement->execute([$goal->goalName,$goal->goalTarget, $goal->goalAmount,$goal->recurring, $goal->recurringAmount, $goal->recurringInterval, $goal->weeklyDay, $goal->monthlyDay, $customerID]);
 }
 ?>

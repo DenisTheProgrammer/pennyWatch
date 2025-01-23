@@ -54,6 +54,18 @@ class Goal
             return "not recurring";
         }
     }
+
+    function displayLastPayment()
+    {
+        if($this->lastPaymentAmount == null)
+        {
+            return "None";
+        }
+        else
+        {
+            return $this->lastPaymentAmount;
+        }
+    }
 }
 
 ?>

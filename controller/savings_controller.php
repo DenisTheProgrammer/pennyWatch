@@ -10,6 +10,31 @@ if(isset($_REQUEST["addGoalButton"]))
 {
     require_once "../view/addGoal_view.php";
 }
+else if(isset($_REQUEST["confirmDetails"]))
+{
+    $goal = new Goal();
+    $goal->goalName = $_REQUEST["goalName"];
+    $goal->goalTarget = $_REQUEST["goalTarget"];
+    $goal->goalAmount = 0;
+    if(!isset($_REQUEST["recurring"]))
+    {
+        $goal->recurring = 0;
+        $goal->recurringInterval = 0;
+        $goal->weeklyDay = 0;
+    }
+    else
+    {
+        $goal->recurring = 1;
+        $goal->recurringInterval = $_REQUEST["recurringInterval"];
+        $goal->weeklyDay = $_REQUEST["weeklyDay"];
+    }
+    $goal->recurringAmount = $_REQUEST["recurringAmount"];
+    $goal->monthlyDay = $_REQUEST["monthlyDay"];
+    $goal->customerID = $_SESSION["customerDetails"][0]->customerID;
+
+    addGoal($goal, $_SESSION["customerDetails"][0]->customerID);
+    require_once "../view/addGoal_view.php";
+}
 else
 {
     if(isset($_REQUEST["deleteButton"]))
