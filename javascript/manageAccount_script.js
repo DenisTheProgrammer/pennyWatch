@@ -1,28 +1,16 @@
-window.onload = function() 
-{
+window.onload = function () {
+  showForm('signInPopUp'); // Show the first form by default
   handleDetails();
   handleSignIn();
-}
+};
 
 
-function openSignIn() 
-{
-  document.getElementById("signInPopUp").style.display = "block";
-}
-  
-function closeSignIn() 
-{
-  document.getElementById("signInPopUp").style.display = "none";
-}
-
-function openDetails()
-{
-  document.getElementById("openDetailsPopUp").style.display = "block";
-}
-
-function closeDetails()
-{
-  document.getElementById("openDetailsPopUp").style.display = "none";
+function showForm(formId) {
+  const forms = document.querySelectorAll(".contentArea > div");
+  forms.forEach((form) => {
+      form.style.display = "none"; // Hide all forms
+  });
+  document.getElementById(formId).style.display = "block"; // Show the selected form
 }
 
 function passwordVisibility() {
@@ -32,25 +20,8 @@ function passwordVisibility() {
   let confirmPasswordField = document.getElementById("confirmPassword");
   let confirmPasswordCheck = document.getElementById("showConfirmPassword");
 
-  if (passwordCheck.checked) 
-  {
-    passwordField.type = "text";
-  } 
-
-  else 
-  {
-    passwordField.type = "password";
-  }
-
-  if (confirmPasswordCheck.checked) 
-  {
-    confirmPasswordField.type = "text";
-  } 
-
-  else 
-  {
-    confirmPasswordField.type = "password";
-  }
+  passwordField.type = passwordCheck.checked ? "text" : "password";
+  confirmPasswordField.type = confirmPasswordCheck.checked ? "text" : "password";
 }
 
 function handleDetails()

@@ -1,18 +1,146 @@
-/* General Page Layout */
 html, body {
-    height: auto;
-    min-height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
 }
 
-body {
+.container {
+    display: flex;
+    height: 90%;
     width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    gap: 5%;
+    padding: 20px;
     box-sizing: border-box;
 }
 
+/* Navigation Bar */
+.navBar {
+    width: 20%;
+    background-color: rgb(0, 21, 51);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow-y: auto; 
+}
+
+.navButton {
+    width: 100%;
+    padding: 15px 10px;
+    margin: 10px 0;
+    background-color: #444;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navButton:hover {
+    background-color: #555;
+}
+
+.contentArea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(0, 21, 51);
+    width: 100%;
+    max-width: 55%; 
+    height: 100%; 
+    overflow-y: auto; 
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+/* Form Styling */
+form.signInDetails, form.customerDetails {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(8, 143, 143);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: auto; 
+}
+
+/* Form Labels */
+form.signInDetails label, form.customerDetails label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Form Input Fields */
+form.signInDetails input, form.customerDetails input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Focus State for Input Fields */
+form.signInDetails input:focus, form.customerDetails input:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+/* Buttons Inside Forms */
+form.signInDetails button, form.customerDetails button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+form.signInDetails button:hover, form.customerDetails button:hover {
+    background-color: #0056b3;
+}
+
+#bottomButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+#bottomButtons button {
+    width: 48%;
+}
+
+.openDetailsPopUp h1, .signInPopUp h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Top Section Styling */
 .topSection {
     display: flex;
     align-items: center;
@@ -20,6 +148,7 @@ body {
     margin: auto;
 }
 
+/* Form Wrapper */
 #form {
     float: left;
     width: 42.5%;
@@ -27,105 +156,15 @@ body {
     vertical-align: middle;
 }
 
-#backImage {
-    height: 300%;
-    width: 50px;
-}
-
+/* Back Button Styling */
 .backButton {
     border: none;
     width: 6%;
     background-color: inherit;
 }
 
-/* Form Buttons Layout */
-.forms {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    max-width: 40%;
-    padding-top: 5%;
+/* Background Image */
+#backImage {
     height: auto;
-}
-
-.forms-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 5%;
-}
-
-/* Form Popups */
-.signInPopUp, .openDetailsPopUp {
-    display: none; 
-    width: 100%;
-    margin-top: 20px; 
-    position: relative;
-}
-
-/* Form Container */
-.form {
-    color: white;
-    width: 100%;
-    height: auto;
-}
-
-#formTitle, #details {
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-}
-
-#formTitle {
-    border-top: 3px solid black;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    background-color: rgba(29, 29, 29, 0.603);
-}
-
-#details {
-    padding-top: 3%;
-    background-color: rgba(77, 77, 79, .4);
-    border: 3px solid black;
-}
-
-/* Form Input and Button Styles */
-.openDetails, .openSignIn {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 3% 10%;
-    transition-duration: 0.2s;
-    width: 100%;
-}
-
-.openDetails:hover, .openSignIn:hover {
-    background-color: grey;
-    color: black;
-}
-
-/* Popup Buttons (Confirm/Close) Side by Side */
-#bottomButtons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 10%;
-}
-
-#bottomButtons button {
-    width: 48%;
-}
-
-/* Stack Form Inputs Vertically */
-form.signInDetails label, form.signInDetails input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-form.signInDetails input {
-    padding: 10px;
-    box-sizing: border-box;
+    width: 50px;
 }

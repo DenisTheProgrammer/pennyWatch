@@ -18,84 +18,81 @@
         </div>
 
 
-        <div class="forms">
-            <div class="forms-buttons">
-                <button class="openSignIn" onclick="openSignIn()">Modify Sign In</button>
-                <button class="openDetails" onclick="openDetails()">Modify Details</button>
-            </div>
+        <div class="container">
+        <!-- Left Sidebar -->
+        <div class="navBar">
+            <button class="navButton" onclick="showForm('signInPopUp')">Modify Sign In</button>
+            <button class="navButton" onclick="showForm('openDetailsPopUp')">Modify Details</button>
+        </div>
 
+        <!-- Right Content Area -->
+        <div class="contentArea">
+            <!-- Sign In Form -->
             <div class="signInPopUp" id="signInPopUp">
                 <div class="form">
-                    <div id="formTitle">
-                        <h1>Modify Sign In</h1>
-                    </div>
-                    <div id="details">
-                        <form method="post" action="../controller/logIn_controller.php" class="signInDetails" name = "signInDetailsForm">
-                            <label for="username"><b>Username</b></label>
-                            <input type="text" value = <?=$username?> name="username" id = "username">
+                    <h1>Modify Sign In</h1>
+                    <form method="post" action="../controller/logIn_controller.php" class="signInDetails" name="signInDetailsForm">
+                        <label for="username">Username</label>
+                        <input type="text" value="<?=$username?>" name="username" id="username">
 
-                            <label for="password"><b>Password</b></label>
-                            <input type="password" value = <?=$password?> name="password" id = "password">
+                        <label for="password">Password</label>
+                        <input type="password" value="<?=$password?>" name="password" id="password">
 
-                            <input type="checkbox" id = "showPassword" onclick = passwordVisibility()>
-                            <label for="showPassword">Show Password</label><br><br>
+                        <label for="showPassword">Show Password</label>
+                        <input type="checkbox" id="showPassword" onclick="passwordVisibility()"><br><br>
 
-                            <label for="confirmPassword"><b>Confirm Password</b></label>
-                            <input type="password" value = <?=$password?> name="confirmPassword" id = "confirmPassword">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" value="<?=$password?>" name="confirmPassword" id="confirmPassword">
 
-                            <input type="checkbox" id = "showConfirmPassword" onclick = passwordVisibility()>
-                            <label for="showConfirmPassword">Show Password</label><br><br>
+                        <label for="showConfirmPassword">Show Password</label>
+                        <input type="checkbox" id="showConfirmPassword" onclick="passwordVisibility()"><br><br>
 
-                            <div id = "bottomButtons">
-                                <button type="submit" class="confirmSignIn" name = "confirmSignIn">Confirm Change</button>
-                                <button type="button" class="cancelButton" onclick="closeSignIn()">Close</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div id="bottomButtons">
+                            <button type="submit" class="confirmSignIn" name="confirmSignIn">Confirm Change</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
+            <!-- Modify Details Form -->
             <div class="openDetailsPopUp" id="openDetailsPopUp">
                 <div class="form">
-                    <div id="formTitle">
-                        <h1>Modify Details</h1>
-                    </div>
-                    <div id="details">
-                        <form method="post" action="../controller/logIn_controller.php" class="signInDetails" name = "customerDetailsForm">
-                            <label for="title"><b>Title</b></label>
-                            <input type="text" value = "<?=$title?>" name="title" id = "title">
+                    <h1>Modify Details</h1>
+                    <form method="post" action="../controller/logIn_controller.php" class = "customerDetails" name="customerDetailsForm">
+                        <label for="title">Title</label>
+                        <input type="text" value="<?=$title?>" name="title" id="title">
 
-                            <label for="firstName"><b>First Name</b></label>
-                            <input type="text" value = "<?=$firstName?>" name="firstName" id = "firstName">
+                        <label for="firstName">First Name</label>
+                        <input type="text" value="<?=$firstName?>" name="firstName" id="firstName">
 
-                            <label for="surname">Surname</label>
-                            <input type="text" value = "<?=$surname?>" name = "surname" id = "surname">
+                        <label for="surname">Surname</label>
+                        <input type="text" value="<?=$surname?>" name="surname" id="surname">
 
-                            <label for="dob">Date of Birth</label>
-                            <input type="date" value = "<?=$dob?>" name = "dob" id="dob">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" value="<?=$dob?>" name="dob" id="dob">
 
-                            <label for="country">Country</label>
-                            <input type="text" value = "<?=$country?>" name = "country" id = "country">
+                        <label for="country">Country</label>
+                        <input type="text" value="<?=$country?>" name="country" id="country">
 
-                            <label for="streetNo">Street Number</label>
-                            <input type="text" value = "<?=$streetNo?>" name="streetNo" id = "streetNo">
+                        <label for="streetNo">Street Number</label>
+                        <input type="text" value="<?=$streetNo?>" name="streetNo" id="streetNo">
 
-                            <label for="streetName">Street Name</label>
-                            <input type="text" value = "<?=$streetName?>" name="streetName" id = "streetName">
+                        <label for="streetName">Street Name</label>
+                        <input type="text" value="<?=$streetName?>" name="streetName" id="streetName">
 
-                            <label for="postcode">Postcode</label>
-                            <input type="text" value = "<?=$postcode?>" name="postcode" id = "postcode">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" value="<?=$postcode?>" name="postcode" id="postcode">
 
-                            <label for="phoneNo">Phone Number</label>
-                            <input type="text" value = "<?=$phoneNo?>" name="phoneNo" id = "phoneNo">
-                            <div id = "bottomButtons">
-                                <button type="submit" class="confirmDetails" name = "confirmDetailsModify">Confirm Change</button>
-                                <button type="button" class="cancelButton" onclick="closeDetails()">Close</button>
-                            </div>
-                        </form>
-                    </div>
+                        <label for="phoneNo">Phone Number</label>
+                        <input type="text" value="<?=$phoneNo?>" name="phoneNo" id="phoneNo">
+
+                        <div id="bottomButtons">
+                            <button type="submit" class="confirmDetails" name="confirmDetailsModify">Confirm Change</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </body>
 </html>
