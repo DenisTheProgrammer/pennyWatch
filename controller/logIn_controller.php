@@ -57,6 +57,13 @@ if(isset($_REQUEST["logIn"]))
     }
 }
 
+//this deals with logging the user out
+if(isset($_REQUEST["logOut"]))
+{
+    session_destroy();
+    require_once "../view/logIn_view.php";
+}
+
 //this takes all the deatils needed for autofill, preparing everything needed for the manage account view
 if(isset($_REQUEST["manageAccount"]))
 {

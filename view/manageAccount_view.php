@@ -23,6 +23,10 @@
         <div class="navBar">
             <button class="navButton" onclick="showForm('signInPopUp')">Modify Sign In</button>
             <button class="navButton" onclick="showForm('openDetailsPopUp')">Modify Details</button>
+            <button class="navButton" onclick="showForm('linksPopUp')">Links</button>
+            <form method="post" class = "navLogButton" action="../controller/logIn_controller.php" name = "logOutForm">
+                <button type="submit" class="logOut" name="logOut">Log Out</button>
+            </form>
         </div>
 
         <!-- Right Content Area -->
@@ -92,6 +96,17 @@
                     </form>
                 </div>
             </div>
+
+            <!-- Links -->
+            <div class = "linksPopUp" id = "linksPopUp">
+                <div class = "form">
+                    <h1>Links</h1>
+                    <p>This is where you can link your bank account to your pennywatch account to auto fill your information!</p>
+                    <form method = "post" action = "controllerNeeded" class = "links" name = "linksForm">
+                        <p>Lloyds Bank?</p>
+                        <button type = "submit" class = "link" name = "link" id = "link">Link Now</button>
+                    </form>
+                </div>
         </div>
     </div>
     </body>

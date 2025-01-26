@@ -48,6 +48,23 @@ html, body {
     background-color: #555;
 }
 
+.navLogButton
+{
+    width: 100%;
+}
+
+.logOut
+{
+    width: 100%;
+    padding: 15px 10px;
+    margin: 10px 0;
+    background-color: red;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
 .contentArea {
     display: flex;
     flex-direction: column;
@@ -135,11 +152,13 @@ form.signInDetails button:hover, form.customerDetails button:hover {
 }
 
 .openDetailsPopUp h1, .signInPopUp h1 {
-    text-align: center;
     margin-bottom: 20px;
     color: white;
 }
 
+h1 {
+    text-align: center;
+}
 /* Top Section Styling */
 .topSection {
     display: flex;
@@ -168,3 +187,4 @@ form.signInDetails button:hover, form.customerDetails button:hover {
     height: auto;
     width: 50px;
 }
+

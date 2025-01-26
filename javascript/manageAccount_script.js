@@ -2,8 +2,21 @@ window.onload = function () {
   showForm('signInPopUp'); // Show the first form by default
   handleDetails();
   handleSignIn();
+  confirmLogOut();
 };
 
+function confirmLogOut()
+{
+  let form = document.forms["logOutForm"];
+  form.addEventListener("submit", function(event)
+  {
+    let logOut = confirm("Are you sure you want to log out?");
+    if(!logOut)
+    {
+       event.preventDefault();
+    }
+  });
+}
 
 function showForm(formId) {
   const forms = document.querySelectorAll(".contentArea > div");
