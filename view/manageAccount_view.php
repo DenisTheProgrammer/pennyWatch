@@ -3,7 +3,11 @@
     <head>
         <link rel = "stylesheet" type = "text/css" href = "../css/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../css/manageAccount_style.css">
+
         <script src = "../javascript/manageAccount_script.js"></script>
+
+        <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+        <script src = "../javascript/handlePlaidBank_script.js"></script>
     </head>
 
     <body>
@@ -102,12 +106,10 @@
                 <div class = "form">
                     <h1>Links</h1>
                     <p>This is where you can link your bank account to your pennywatch account to auto fill your information!</p>
-                    <form method = "post" action = "controllerNeeded" class = "links" name = "linksForm">
-                        <p>Lloyds Bank?</p>
-                        <button type = "submit" class = "link" name = "link" id = "link">Link Now</button>
-                    </form>
+                    <p>Link Bank</p>
+                    <button id = "link">Link Now</button>
                 </div>
+            </div>
         </div>
-    </div>
     </body>
 </html>
