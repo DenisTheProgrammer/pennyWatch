@@ -24,9 +24,37 @@ const exhangePublicToken = async(publicToken) => {
             body: JSON.stringify({publicToken: publicToken}),
         });
         const data = await response.json();
-        console.log("Access token:", data.access_token);
+
+        //process the access token to make the transactions available to the backend
+        if(data.error){
+            console.error("Error exchanging public token internally:", data.error);
+        }
+        else{
+            const accessToken = data.accessToken;
+            //fetch using the access token
+            fetchTransactions(accessToken);
+        }
+
     }catch(err){
         console.error("Error exchanging public token:", err);
+    }
+};
+
+//fetch transactions using the access token
+ const fetchTransactions = async(accessToken) => {
+    try{
+        const response = await fetch("../plaidController/fetch_transactions.php", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({accessToken: accessToken}),
+        });
+        
+        if(!response.ok){
+            throw new Error("Error fetching transactions");
+        }
+
+    }catch(err){
+        console.error("Error fetching transactions:", err);
     }
 };
 
@@ -37,7 +65,7 @@ const initialisePlaid = async() =>{
         const handler = Plaid.create({
             token: linkToken,
             onSuccess: async function(publicToken, metadata) {
-                await exhangePublicToken(publicToken); //send the public token to the back end
+                await exhangePublicToken(publicToken); //send the public token to the back end to get the access token
             },
             onExit: function(err, metadata) {
                 if (err){

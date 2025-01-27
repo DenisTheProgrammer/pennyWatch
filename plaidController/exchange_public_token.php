@@ -25,7 +25,7 @@ try{
         'json' => [
             'client_id' => $clientID,
             'secret' => $secret,
-            'publicToken' => $publicToken,
+            'public_token' => $publicToken,
         ]
     ]);
 
@@ -35,7 +35,7 @@ try{
     $accessToken = $data["access_token"];
     //the function below stores the access token in the database for increased security
     //storeAccessToken($input["user_id"], $accessToken, $_SESSION["customerDetails"][0]->customerID);
-    echo json_encode(["access_token" => $accessToken]); //prepare to send the access token away
+    echo json_encode(["accessToken" => $accessToken]); //prepare to send the access token away
 }catch (Exception $e){
     http_response_code(500);
     echo json_encode(["error" => $e->getMessage()]);

@@ -29,7 +29,10 @@ try{
         ],
     ]);
     $data = json_decode($response->getBody(), true);
-    echo json_encode(["transactions" => $data["transactions"]]);//encode the transactions data ready to send away
+    //echo json_encode(["transactions" => $data["transactions"]]);//encode the transactions data ready to send away
+
+    print_r($data["transactions"]);
+
 }catch (Exception $e){
     http_response_code(500);
     echo json_encode(["error" => $e->getMessage()]);
