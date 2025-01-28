@@ -82,4 +82,8 @@ while ($hasMore) {
         }
 }
 
+echo json_encode([
+    'done' => true,
+]);
+
 ?>

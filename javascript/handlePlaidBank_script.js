@@ -2,6 +2,17 @@ window.onload = function () {
     initialisePlaid();
   };
 
+
+function showLoader() {
+    document.getElementById("loader").style.display = "block";
+}
+
+
+function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+}
+
+
 //get the link token
 const fetchLinkToken = async() => {
     try{
@@ -18,6 +29,7 @@ const fetchLinkToken = async() => {
 //exchange the link token for a public token
 const exhangePublicToken = async(publicToken) => {
     try{
+        showLoader();
         const response = await fetch("../plaidController/exchange_public_token.php", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -34,8 +46,8 @@ const exhangePublicToken = async(publicToken) => {
             //fetch using the access token
             fetchTransactions(accessToken);
         }
-
     }catch(err){
+        hideLoader();
         console.error("Error exchanging public token:", err);
     }
 };
@@ -49,11 +61,12 @@ const exhangePublicToken = async(publicToken) => {
             body: JSON.stringify({accessToken: accessToken}),
         });
         
-        if(!response.ok){
-            throw new Error("Error fetching transactions");
+        const data = await response.json();
+        if (data.done) {
+            hideLoader();
         }
-
     }catch(err){
+        hideLoader();
         console.error("Error fetching transactions:", err);
     }
 };
@@ -66,7 +79,6 @@ const initialisePlaid = async() =>{
             token: linkToken,
             onSuccess: async function(publicToken, metadata) {
                 await exhangePublicToken(publicToken); //send the public token to the back end to get the access token
-                alert("Bank Successfully Linked");
             },
             onExit: function(err, metadata) {
                 if (err){

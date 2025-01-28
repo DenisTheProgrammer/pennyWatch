@@ -108,6 +108,10 @@
                     <p>This is where you can link your bank account to your pennywatch account to auto fill your information!</p>
                     <p>Link Bank</p>
                     <button id = "link">Link Now</button>
+
+                    <div id="loader" style="display: none;">
+                        Loading...
+                    </div>
                 </div>
             </div>
         </div>
