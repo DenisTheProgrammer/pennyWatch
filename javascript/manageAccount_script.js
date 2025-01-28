@@ -1,9 +1,9 @@
-window.onload = function () {
-  showForm('signInPopUp'); // Show the first form by default
-  handleDetails();
-  handleSignIn();
-  confirmLogOut();
-};
+document.addEventListener("DOMContentLoaded", () => {
+    showForm('signInPopUp'); // Show the first form by default
+    handleDetails();
+    handleSignIn();
+    confirmLogOut();
+  });
 
 function confirmLogOut()
 {

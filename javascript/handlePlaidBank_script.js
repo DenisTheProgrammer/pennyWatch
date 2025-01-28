@@ -66,6 +66,7 @@ const initialisePlaid = async() =>{
             token: linkToken,
             onSuccess: async function(publicToken, metadata) {
                 await exhangePublicToken(publicToken); //send the public token to the back end to get the access token
+                alert("Bank Successfully Linked");
             },
             onExit: function(err, metadata) {
                 if (err){
