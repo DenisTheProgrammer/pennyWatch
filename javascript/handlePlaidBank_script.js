@@ -64,9 +64,11 @@ const exhangePublicToken = async(publicToken) => {
         const data = await response.json();
         if (data.done) {
             hideLoader();
+            alert("Bank successfully linked!");
         }
     }catch(err){
         hideLoader();
+        alert("Bank failed linking due to an unknown error. Please try again later.");
         console.error("Error fetching transactions:", err);
     }
 };

@@ -16,7 +16,11 @@ html, body {
 #costDisplay,
 #rightSide {
     flex: 1;
-    max-width: 50%;
+}
+
+#incomeDisplay,
+#costDisplay{
+    max-width: 60%;
 }
 
 #rightSide {
@@ -25,6 +29,7 @@ html, body {
     align-items: center;
     gap:10%;
     height: 100%;
+    max-width: 40%;
 }
 
 /*filter style*/
@@ -125,10 +130,16 @@ table .button:hover {
 /*pagination style*/
 #pagination {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2%;
-    margin-top: 3%;
+    gap: 5px;
+    max-width: 100%;
+    padding: 10px;
+    max-height: 100px; 
+    overflow-y: auto; 
+    border-radius: 8px;
 }
+
 
 .pageLink {
     padding: 10px 15px;
@@ -139,6 +150,8 @@ table .button:hover {
     cursor: pointer;
     text-decoration: none;
     font-weight: normal;
+    min-width: 40px; 
+    text-align: center;
 }
 
 .pageLink:hover {
@@ -159,4 +172,3 @@ table .button:hover {
 .pageLink[style*="text-decoration: underline"] {
     font-weight: bold; 
 }
-
