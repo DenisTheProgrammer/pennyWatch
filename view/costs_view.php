@@ -34,9 +34,9 @@
                     <label for="filterCategory">Filter by Category:</label>
                     <select id="filterCategory" name="filterCategory" onchange="filterDisplay()">
                         <option value="All" <?= ($filterCategory == 'All') ? 'selected' : ''; ?>>All</option>
-                        <option value="Salary" <?= ($filterCategory == 'Salary') ? 'selected' : ''; ?>>Salary</option>
-                        <option value="Business" <?= ($filterCategory == 'Business') ? 'selected' : ''; ?>>Business</option>
-                        <option value="Investment" <?= ($filterCategory == 'Investment') ? 'selected' : ''; ?>>Investment</option>
+                        <?php foreach($categories as $category): ?>
+                            <option value="<?= $category ?>" <?= ($filterCategory == $category) ? 'selected' : ''; ?>><?= $category?></option>
+                        <?php endforeach; ?>
                     </select>
 
                     <label for="filterMonth">Filter by Month:</label>

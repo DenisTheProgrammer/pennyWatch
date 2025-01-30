@@ -6,6 +6,8 @@ require_once "../model/customer.php";
 require_once "../model/goal.php";
 session_start();
 
+$categories = getCostCategories($_SESSION["customerDetails"][0]->customerID);
+
 if (isset($_REQUEST["addCostButton"]))
 {
     require_once "../view/addCost_view.php";

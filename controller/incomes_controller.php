@@ -5,6 +5,8 @@ require_once "../model/income.php";
 require_once "../model/customer.php";
 session_start();
 
+$categories = getIncomeCategories($_SESSION["customerDetails"][0]->customerID);
+
 if (isset($_REQUEST["addIncomeButton"]))
 {
     require_once "../view/addIncome_view.php";

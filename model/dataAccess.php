@@ -74,6 +74,14 @@ function getAllIncomes($customerID)
     return $statement->fetchAll(PDO::FETCH_CLASS, "Income");
 }
 
+function getIncomeCategories($customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT DISTINCT category FROM income WHERE customerID = ?");
+    $statement->execute([$customerID]);
+    return $statement->fetchAll(PDO::FETCH_COLUMN);
+}
+
 function getIncomesByMonth($month, $year, $customerID)
 {
     global $pdo;
@@ -124,6 +132,15 @@ function getAllCosts($customerID)
     $statement->execute([$customerID]);
     return $statement->fetchAll(PDO::FETCH_CLASS, "Cost");
 }
+
+function getCostCategories($customerID)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT DISTINCT category FROM cost WHERE customerID = ?");
+    $statement->execute([$customerID]);
+    return $statement->fetchAll(PDO::FETCH_COLUMN);
+}
+
 
 function getCostsByMonth($month, $year, $customerID)
 {

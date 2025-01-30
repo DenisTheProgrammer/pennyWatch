@@ -28,11 +28,9 @@
                     <input list = "categories" name = "category" id = "category"><br><br>
 
                     <datalist id = "categories">
-                        <option value="Salary"></option>
-                        <option value="Freelance"></option>
-                        <option value="Gift"></option>
-                        <option value="Investment"></option>
-                        <option value="Other"></option>
+                        <?php foreach ($categories as $category): ?>
+                            <option value = "<?= $category ?>"></option>
+                        <?php endforeach; ?>
                     </datalist>
 
                     <label for="date">Date</label><br>
