@@ -1,7 +1,7 @@
 <?php
 require_once "../controller/financeFunctions.php";
 
-$disposableIncome = calculateDisposableIncome(5, 2024);
+$disposableIncome = calculateDisposableIncome(date("n"), date("Y"));
 $message = getFeedbackMessage($disposableIncome);
 require_once "../view/dashboard_view.php";
 ?>
