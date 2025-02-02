@@ -37,6 +37,7 @@ while ($hasMore) {
                 'secret' => $secret,
                 'access_token' => $accessToken,
                 'cursor' => $cursor,  // Pass the cursor for pagination
+                "count" => 500,
             ]
         ]);
         $data = json_decode($response->getBody(), true);

@@ -110,7 +110,6 @@
                     <button id = "link">Link Now</button>
 
                     <div id="loader" class="loader" style="display: none;">
-                        <p class="loader-text">Retrieving data, please wait...</p>
                     </div>
                 </div>
             </div>
