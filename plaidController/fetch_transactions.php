@@ -24,7 +24,10 @@ $environment = "sandbox";
 $url = "https://sandbox.plaid.com/transactions/sync";
 
 $hasMore = true;
-$cursor = null; // start at first page
+$cursor = null; 
+$transactions = [];
+//$x = 0; // counter for debugging calls
+$emptyCount = 0;
 
 while ($hasMore) {
     try{
@@ -37,9 +40,42 @@ while ($hasMore) {
             ]
         ]);
         $data = json_decode($response->getBody(), true);
+        $transactions = array_merge($transactions, $data["added"]);
 
-        foreach($data["added"] as $transaction)
-        {            
+        //$x++;
+
+        //print_r("Call number: " . $x);
+
+        //print_r("Transactions in this call: " . count($data["added"]) . "\n");       
+
+        if (isset($data["next_cursor"]))
+        {
+            $cursor = $data["next_cursor"]; // get the next page
+        } else
+        {
+            $hasMore = false; // No more transactions to fetch
+        }
+
+        if (count($data["added"]) === 0) {
+            $emptyCount++;
+            if ($emptyCount > 3) {
+                break; // Stop fetching if no new transactions after 3 calls
+            }
+        } else {
+            $emptyCount = 0; // Reset if new transactions appear
+        }
+
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(["error" => $e->getMessage()]);
+            break;
+        }
+
+        usleep(1200000); // make a call every 1.2 seconds to stay under 50 calls per minute
+}
+
+foreach($transactions as $transaction)
+        {
             if($transaction["amount"] < 0)
             {
                 $income = new Income();
@@ -63,24 +99,6 @@ while ($hasMore) {
                 addCost($cost, $_SESSION["customerDetails"][0]->customerID);
              }
         }
-
-        if (isset($data['next_cursor']))
-        {
-            $cursor = $data['next_cursor']; // get the next page
-        } else
-        {
-            $hasMore = false; // No more transactions to fetch
-        }
-
-        usleep(1230000); // make a call every 1.23 seconds to stay under 50 calls per minute
-
-
-    }catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(["error" => $e->getMessage()]);
-            break;
-        }
-}
 
 echo json_encode([
     'done' => true,
