@@ -81,7 +81,7 @@
                     <tbody>
                         <?php foreach($costs as $cost): ?>
                         <tr>
-                            <td><?= $cost->costReference ?></td>
+                            <td><?= strlen($cost->costReference) > 20 ? substr($cost->costReference, 0, 20) . '...' : $cost->costReference ?></td>
                             <td>£<?= $cost->costAmount ?></td>
                             <td><?= $cost->category ?></td>
                             <td><?= $cost->date ?></td>

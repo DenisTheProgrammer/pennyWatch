@@ -81,7 +81,7 @@
                 <tbody>
                     <?php foreach($incomes as $income): ?>
                     <tr>
-                        <td><?= $income->incomeReference ?></td>
+                        <td><?= strlen($income->incomeReference) > 20 ? substr($income->incomeReference, 0, 20) . '...' : $income->incomeReference ?></td>
                         <td>£<?= $income->incomeAmount ?></td>
                         <td><?= $income->category ?></td>
                         <td><?= $income->date ?></td>

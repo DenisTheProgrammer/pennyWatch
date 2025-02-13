@@ -5,7 +5,7 @@ require_once "../model/customer.php";
 require_once "../controller/financeFunctions.php";
 
 //this displays the sign up page when the register button is clicked
-if (isset($_REQUEST["register"]))
+if (isset($_REQUEST["register"]) || isset($_REQUEST["backButton"]))
 {
     require_once "../view/signUp_view.php";
 }
@@ -51,7 +51,7 @@ if(isset($_REQUEST["logIn"]))
     {   
         $_SESSION["loggedUser"] = $logged;
         $_SESSION["customerDetails"] = getDetailsByLogInId($logged[0]->logInID);
-        $disposableIncome = calculateDisposableIncome(5, 2024);//look here
+        $disposableIncome = calculateDisposableIncome(date("n"), date("Y"));//look here
         $message = getFeedbackMessage($disposableIncome);
         require_once "../view/dashboard_view.php";
     }
