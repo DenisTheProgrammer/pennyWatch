@@ -21,13 +21,10 @@ $secret = "e328d8859e1c9311b92f82d3178c8d";
 $environment = "sandbox";
 
 //API URL for fetching transactions
-$url = "https://sandbox.plaid.com/transactions/sync";
+$url = "https://sandbox.plaid.com/transactions/get";
 
 $hasMore = true;
-$cursor = null; 
-$transactions = [];
-//$x = 0; // counter for debugging calls
-$emptyCount = 0;
+$offset = 0; // start at first page
 
 while ($hasMore) {
     try{
@@ -36,46 +33,18 @@ while ($hasMore) {
                 'client_id' => $clientID,
                 'secret' => $secret,
                 'access_token' => $accessToken,
-                'cursor' => $cursor,  // Pass the cursor for pagination
-                "count" => 500,
+                'start_date' => '2024-01-01',
+                'end_date' => date('Y-m-d'),
+                'options' => [
+                    'count' => 500,
+                    'offset' => $offset
+                ]
             ]
         ]);
+
         $data = json_decode($response->getBody(), true);
-        $transactions = array_merge($transactions, $data["added"]);
 
-        //$x++;
-
-        //print_r("Call number: " . $x);
-
-        //print_r("Transactions in this call: " . count($data["added"]) . "\n");       
-
-        if (isset($data["next_cursor"]))
-        {
-            $cursor = $data["next_cursor"]; // get the next page
-        } else
-        {
-            $hasMore = false; // No more transactions to fetch
-        }
-
-        if (count($data["added"]) === 0) {
-            $emptyCount++;
-            if ($emptyCount > 3) {
-                break; // Stop fetching if no new transactions after 3 calls
-            }
-        } else {
-            $emptyCount = 0; // Reset if new transactions appear
-        }
-
-        }catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(["error" => $e->getMessage()]);
-            break;
-        }
-
-        usleep(1200000); // make a call every 1.2 seconds to stay under 50 calls per minute
-}
-
-foreach($transactions as $transaction)
+        foreach($data["transactions"] as $transaction)
         {
             if($transaction["amount"] < 0)
             {
@@ -100,6 +69,25 @@ foreach($transactions as $transaction)
                 addCost($cost, $_SESSION["customerDetails"][0]->customerID);
              }
         }
+
+        if (count($data["transactions"]) < 500) 
+        {
+            $hasMore = false; // Stop when fewer transactions than call, meaning there are no more transactions
+        } 
+        else 
+        {
+            $offset += 500; // Get next batch of transactions
+        }
+
+        usleep(1230000); // make a call every 1.23 seconds to stay under 50 calls per minute
+
+
+    }catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(["error" => $e->getMessage()]);
+            break;
+        }
+}
 
 echo json_encode([
     'done' => true,

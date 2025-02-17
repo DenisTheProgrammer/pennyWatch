@@ -48,6 +48,7 @@ const exhangePublicToken = async(publicToken) => {
         }
     }catch(err){
         hideLoader();
+        alert("Bank failed linking due to an internal error. Please try again later.");
         console.error("Error exchanging public token:", err);
     }
 };

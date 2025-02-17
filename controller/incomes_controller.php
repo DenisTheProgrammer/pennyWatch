@@ -29,6 +29,8 @@ else if(isset($_REQUEST["confirmDetails"]))
 
     addIncome($income, $_SESSION["customerDetails"][0]->customerID);
 
+    $confirmMessage = "Income successfully added!";
+
     require_once "../view/addIncome_view.php";
 }
 else

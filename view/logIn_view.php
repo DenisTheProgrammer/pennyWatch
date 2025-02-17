@@ -32,5 +32,11 @@
                 </div>
             </div>
         </div>
+
+        <?php if (isset($failureMessage)): ?>
+            <script>
+                alert("<?= $failureMessage; ?>");
+            </script>
+        <?php endif; ?>
     </body>
 </html>

@@ -45,6 +45,7 @@ if(isset($_REQUEST["logIn"]))
 
     if(!isset($logged) || $logged == null)
     {
+        $failureMessage = "Incorrect details, please try again!";
         require_once "../view/logIn_view.php";
     }
     else

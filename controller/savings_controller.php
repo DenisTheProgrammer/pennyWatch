@@ -33,6 +33,9 @@ else if(isset($_REQUEST["confirmDetails"]))
     $goal->customerID = $_SESSION["customerDetails"][0]->customerID;
 
     addGoal($goal, $_SESSION["customerDetails"][0]->customerID);
+
+    $confirmMessage = "Goal succesfully added!";
+
     require_once "../view/addGoal_view.php";
 }
 else

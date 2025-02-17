@@ -43,5 +43,12 @@
                 </form>
             </div>
         </div>
+
+        <?php if (isset($confirmMessage)): ?>
+            <script>
+                alert("<?= $confirmMessage; ?>");
+            </script>
+        <?php endif; ?>
+
     </body>
 </html>

@@ -30,6 +30,8 @@ else if(isset($_REQUEST["confirmDetails"]))
 
     addCost($cost, $_SESSION["customerDetails"][0]->customerID);
 
+    $confirmMessage = "Cost was successfully added!";
+
     require_once "../view/addCost_view.php";
 }
 else
