@@ -8,7 +8,7 @@
 {
     float: left;
     color: white;
-    padding: 1% 7%;
+    padding: 1% 6%;
     text-decoration: none; /*this removes the underline of the hyperlinks*/
     font-size: 17px;
 }
@@ -33,7 +33,7 @@
     padding: 1%;
     transition-duration: 0.2s;
     font-size: 17px;
-    width:25%;
+    width:18%;
 }
 
 .manageButton:hover

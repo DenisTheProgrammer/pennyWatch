@@ -1,6 +1,6 @@
 body 
 {
-    background-image: linear-gradient(rgba(20,20,20,.8), rgba(20,20,20,.8)),url(../images/background.jpg);
+    background-image: linear-gradient(rgba(20,20,20,.8), rgba(20,20,20,.8)),url(../images/newBackground.jpg);
     color:white;
     background-size: cover;
 }

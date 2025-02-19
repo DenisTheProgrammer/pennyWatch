@@ -12,6 +12,7 @@
     <body>
         <div class = "navBar"> <!--ask Paul whether he is happy with the a tags-->
             <a class = "active" href = "../controller/dashboard_controller.php">Dashboard</a>
+            <a href = "../controller/breakdown_controller.php">Breakdown</a>
             <a href = "../controller/incomes_controller.php">Incomes</a>
             <a href = "../controller/costs_controller.php"> Costs</a>
             <a href = "../controller/savings_controller.php"> Savings</a>
