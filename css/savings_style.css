@@ -7,10 +7,6 @@
     overflow-y: auto;
 }
 
-#savingsTopDisplay {
-    margin-bottom: 2%;
-}
-
 #goalSummary {
     width: 100%;
     margin-bottom: 1%;
@@ -59,52 +55,12 @@ table .deleteButton img, table .payButton img {
     height: 16px;
 }
 
-#savingsBottomDisplay {
+#addButton {
     display: flex;
-    justify-content: space-between;
-    gap: 2%;
-}
-
-#showSummary {
-    width: 35%;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 2%;
-    border-radius: 8px;
-    font-size: 18px; 
-}
-
-#filterForm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    gap: 2%;
-    margin-bottom: 2%;
-    padding: 1%;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-}
-
-#filterForm select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    background-color: #1e1e1e;
-    color: white;
-    margin: 1%;
-}
-
-
-#filterForm select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    background-color: #1e1e1e;
-    color: white;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    margin-top: 20px; 
 }
 
 #addButton .button {
@@ -120,18 +76,5 @@ table .deleteButton img, table .payButton img {
 #addButton .button:hover {
     background-color: #218838;
     transform: scale(1.05);
-}
-
-#savingsAddButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 48%;
-}
-
-#savingsAddButton #addButton {
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
 

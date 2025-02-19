@@ -1,9 +1,3 @@
-function filterDisplay()
-{
-    const form = document.getElementById('filterForm');
-    form.submit();
-}
-
 function checkPayment()
 {
     const form = document.getElementById('paymentForm');

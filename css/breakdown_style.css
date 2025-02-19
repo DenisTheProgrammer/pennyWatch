@@ -1,0 +1,58 @@
+#showSummary {
+    width: 35%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2%;
+    border-radius: 8px;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 3%;
+}
+
+#filterForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+}
+
+#filterForm select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #1e1e1e;
+    color: white;
+    margin: 1%;
+}
+
+#downloadButton {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 15%;
+}
+
+#downloadSummary{
+    font-size: 18px;
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#downloadSummary:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
