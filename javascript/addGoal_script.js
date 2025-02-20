@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     weeklyMonthlyToggle();
+    handleDetails();
 });
 
 function weeklyMonthlyToggle() {
@@ -27,4 +28,36 @@ function weeklyMonthlyToggle() {
         weeklyDayContainer.style.display = 'none';
         monthlyDayContainer.style.display = 'block';
     }
+}
+
+function handleDetails()
+{
+    let form = document.forms["addGoalForm"];
+
+    form.addEventListener("submit", function(event)
+    {
+        let name = form.elements["goalName"].value.trim();
+        let target = form.elements["goalTarget"].value.trim();
+        let amount = form.elements["recurringAmount"].value.trim();
+
+        if(name === "")
+        {
+            alert("Please enter a valid name");
+            event.preventDefault();
+        }
+        else if(target === "")
+        {
+            alert("Please enter a target");
+            event.preventDefault();
+        }
+        else if(recurring.checked)
+        {
+            if(amount === "")
+            {
+                alert("Please enter an amount");
+                event.preventDefault();
+            }
+        }
+
+    });
 }

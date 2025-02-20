@@ -58,50 +58,42 @@ function handleDetails()
             alert("Please enter a title");
             event.preventDefault();
         }
-
-        if(firstName === "")
+        else if(firstName === "")
         {
             alert("Please enter a first name");
             event.preventDefault();
         }
-
-        if(surname === "")
+        else if(surname === "")
         {
             alert("Please enter a surname");
             event.preventDefault();
         }
-
-        if(dob == "")
+        else if(dob == "")
         {
             alert("Please select a date");
             event.preventDefault();
         }
-
-        if(country === "")
+        else if(country === "")
         {
             alert("Please select a country");
             event.preventDefault();
         }
-
-        if(streetNo === "")
+        else if(streetNo === "")
         {
             alert("Please enter a street number");
             event.preventDefault();
         }
-
-        if(streetName === "")
+        else if(streetName === "")
         {
             alert("Please enter a street name");
             event.preventDefault();
         }
-
-        if(postcode === "")
+        else if(postcode === "")
         {
             alert("Please enter a postcode");
             event.preventDefault();
         }
-
-        if(phoneNo == "")
+        else if(phoneNo == "")
         {
             alert("Please enter a phone number");
             event.preventDefault();

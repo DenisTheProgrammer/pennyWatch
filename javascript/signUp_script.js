@@ -34,74 +34,62 @@ function handleDetails()
             alert("Please enter an email");
             event.preventDefault();//prevents form from submitting
         }
-
-        if(password === "")
+        else if(password === "")
         {
             alert("Please enter a password");
             event.preventDefault();
         }
-
-        if(confirmPassword === "")
+        else if(confirmPassword === "")
         {
             alert("Please confirm your password");
             event.preventDefault();
         }
-
-        if(title === "")
+        else if(title === "")
         {
             alert("Please enter a title");
             event.preventDefault();
         }
-
-        if(firstName === "")
+        else if(firstName === "")
         {
             alert("Please enter a first name");
             event.preventDefault();
         }
-
-        if(surname === "")
+        else if(surname === "")
         {
             alert("Please enter a surname");
             event.preventDefault();
         }
-
-        if(dob == "")
+        else if(dob == "")
         {
             alert("Please select a date");
             event.preventDefault();
         }
-
-        if(country === "")
+        else if(country === "")
         {
             alert("Please select a country");
             event.preventDefault();
         }
-
-        if(streetNo === "")
+        else if(streetNo === "")
         {
             alert("Please enter a street number");
             event.preventDefault();
         }
-
-        if(streetName === "")
+        else if(streetName === "")
         {
             alert("Please enter a street name");
             event.preventDefault();
         }
-
-        if(postcode === "")
+        else if(postcode === "")
         {
             alert("Please enter a postcode");
             event.preventDefault();
         }
-
-        if(phoneNo == "")
+        else if(phoneNo == "")
         {
             alert("Please enter a phone number");
             event.preventDefault();
         }
-
-        if(password != confirmPassword)
+        else if(password != confirmPassword)
         {
             alert("Passwords do not match");
             event.preventDefault();
@@ -120,26 +108,12 @@ function passwordVisibility()
 
     passwordCheck.addEventListener("change",function()
     {
-        if(passwordCheck.checked)
-        {
-            passwordField.type = "text";
-        }
-        else
-        {
-            passwordField.type = "password";
-        }
+        passwordCheck.checked ? passwordField.type = "text" : passwordField.type = "password"; 
     });
 
     confirmPasswordCheck.addEventListener("change", function()
     {
-        if(confirmPasswordCheck.checked)
-        {
-            confirmPasswordField.type = "text";
-        }
-        else
-        {
-            confirmPasswordField.type = "password";
-        }
+        confirmPasswordCheck.checked ? confirmPasswordField.type = "text" : confirmPasswordField.type = "password";
     });
 }
 

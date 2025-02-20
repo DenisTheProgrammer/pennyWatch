@@ -18,8 +18,7 @@ function handleInput()
             alert("Please enter a valid username");
             event.preventDefault();//prevents the form from submitting - default is to submit
         }
-
-        if(password === "")
+        else if(password === "")
         {
             alert("Please enter a valid password");
             event.preventDefault();
@@ -37,14 +36,7 @@ function passwordVisibility()
 
     passwordCheck.addEventListener("change",function()
     {
-        if(passwordCheck.checked)
-        {
-            passwordField.type = "text";
-        }
-        else
-        {
-            passwordField.type = "password";
-        }
+        passwordCheck.checked ? passwordField.type = "text" : passwordField.type = "password";
     });
 }
 //end of checkbox handle

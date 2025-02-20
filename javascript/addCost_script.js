@@ -1,0 +1,39 @@
+window.onload = function () {
+    handleDetails();
+};
+
+function handleDetails()
+{
+    let form = document.forms["addCostForm"];
+
+    form.addEventListener("submit", function(event)
+    {
+        let reference = form.elements["costReference"].value.trim();
+        let amount = form.elements["costAmount"].value.trim();
+        let category = form.elements["category"].value.trim();
+        let date = form.elements["date"].value.trim();
+
+        if(reference === "")
+        {
+            alert("Please enter a reference");
+            event.preventDefault();
+        }
+        else if(amount === "")
+        {
+            alert("Please enter an amount");
+            event.preventDefault();
+        }
+        else if(category === "")
+        {
+            alert("Please confirm your password");
+            event.preventDefault();
+        }
+
+        else if(date === "")
+        {
+            alert("Please enter a title");
+            event.preventDefault();
+        }
+
+    });
+}

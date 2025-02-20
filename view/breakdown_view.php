@@ -59,7 +59,7 @@
         <form method="post" action="breakdown_controller.php">
             <input type="hidden" name="filterMonth" value="<?= $filterMonth?>">
             <input type="hidden" name="filterYear" value="<?= $filterYear?>">
-            <input type="submit" value="Download Summary" name="downloadSummary" id = "downloadSummary" class="button">
+            <input type="submit" value="Download Breakdown" name="downloadSummary" id = "downloadSummary" class="button">
         </form>
     </div>
 
