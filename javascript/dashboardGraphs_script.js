@@ -47,7 +47,9 @@ function dashboardColumnChart(dashboardColumnData)
             fontColor: "white"
         },
         axisX: {
-            labelFontColor: "white"
+            labelFontColor: "white",
+            labelAngle: -45,
+            interval: 1 
         },
         axisY: {
             title: "Disposable Income (£)",

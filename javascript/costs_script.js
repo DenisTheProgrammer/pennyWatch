@@ -1,6 +1,6 @@
-import { pagination } from "./pagination.js";
+//import { pagination } from "./pagination.js";
 
-document.addEventListener("DOMContentLoaded", () => pagination(10, "costTable"));
+//document.addEventListener("DOMContentLoaded", () => pagination(10, "costTable"));
 function filterDisplay()
 {
     const form = document.getElementById('filterForm');

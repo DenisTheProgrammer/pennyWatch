@@ -69,33 +69,35 @@
                     <button type="submit" name = "resetButton" class="button">Reset</button>
                 </form>
 
-                <table id = "costTable">
-                    <thead>
-                        <tr>
-                            <th>Reference</th>
-                            <th>Amount</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($costs as $cost): ?>
-                        <tr>
-                            <td><?= strlen($cost->costReference) > 20 ? substr($cost->costReference, 0, 20) . '...' : $cost->costReference ?></td>
-                            <td>£<?= $cost->costAmount ?></td>
-                            <td><?= $cost->category ?></td>
-                            <td><?= $cost->date ?></td>
-                            <td>
-                                <form method="post" action="costs_controller.php">
-                                    <input type="submit" value="Delete" name="deleteButton" class="button">
-                                    <input type="hidden" value="<?= $cost->costID ?>" name="IDPass">
-                                </form>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                <div id="tableContainer">
+                    <table id = "costTable">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($costs as $cost): ?>
+                            <tr>
+                                <td><?= strlen($cost->costReference) > 20 ? substr($cost->costReference, 0, 20) . '...' : $cost->costReference ?></td>
+                                <td>£<?= $cost->costAmount ?></td>
+                                <td><?= $cost->category ?></td>
+                                <td><?= $cost->date ?></td>
+                                <td>
+                                    <form method="post" action="costs_controller.php">
+                                        <input type="submit" value="Delete" name="deleteButton" class="button">
+                                        <input type="hidden" value="<?= $cost->costID ?>" name="IDPass">
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
                 <div id="pagination"></div>
             </div>
             <div id="rightSide">

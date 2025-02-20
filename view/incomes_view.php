@@ -69,33 +69,35 @@
             </form>
 
             <!-- Table of incomes -->
-            <table id = "incomeTable">
-                <thead>
-                    <tr>
-                        <th>Reference</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($incomes as $income): ?>
-                    <tr>
-                        <td><?= strlen($income->incomeReference) > 20 ? substr($income->incomeReference, 0, 20) . '...' : $income->incomeReference ?></td>
-                        <td>£<?= $income->incomeAmount ?></td>
-                        <td><?= $income->category ?></td>
-                        <td><?= $income->date ?></td>
-                        <td>
-                            <form method="post" action="incomes_controller.php">
-                                <input type="submit" value="Delete" name="deleteButton" class="button">
-                                <input type="hidden" value="<?= $income->incomeID ?>" name="IDPass">
-                            </form>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div id="tableContainer">
+                <table id = "incomeTable">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($incomes as $income): ?>
+                        <tr>
+                            <td><?= strlen($income->incomeReference) > 20 ? substr($income->incomeReference, 0, 20) . '...' : $income->incomeReference ?></td>
+                            <td>£<?= $income->incomeAmount ?></td>
+                            <td><?= $income->category ?></td>
+                            <td><?= $income->date ?></td>
+                            <td>
+                                <form method="post" action="incomes_controller.php">
+                                    <input type="submit" value="Delete" name="deleteButton" class="button">
+                                    <input type="hidden" value="<?= $income->incomeID ?>" name="IDPass">
+                                </form>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
             <div id="pagination"></div>
         </div>
         <div id="rightSide">

@@ -48,8 +48,9 @@
                             <td><?=$goal->calculateNextPayment()?></td>
                             <td><?= $goal->dateCreated ?></td>
                             <td>
-                                <form id ="paymentForm" method="post" action="savings_controller.php" onsubmit="checkPayment()">
-                                    <input type="text" name="paymentInput" id = "paymentInput" placeholder="Enter amount to pay...">
+                                <form class ="paymentForm" method="post" action="savings_controller.php">
+                                    <input type="hidden" name="disposableIncome" class = "disposableIncome" value="<?= $disposableIncome ?>">
+                                    <input type="text" name="paymentInput" class = "paymentInput" placeholder="Enter amount to pay...">
                                     <button type="submit" class="payButton" name = "payButton">
                                         <img src = "../images/addButton.png" id = "payImage" alt = "pay button">
                                     </button>

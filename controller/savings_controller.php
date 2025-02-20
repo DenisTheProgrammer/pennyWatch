@@ -57,6 +57,7 @@ else
         addCost($cost, $_SESSION["customerDetails"][0]->customerID);
     }
 
+    $disposableIncome = calculateDisposableIncome(ltrim(date("m"), "0"), date("Y"));
     $goals = getAllGoals($_SESSION["customerDetails"][0]->customerID);
     
     require_once "../view/savings_view.php";

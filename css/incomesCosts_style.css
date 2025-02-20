@@ -172,3 +172,25 @@ table .button:hover {
 .pageLink[style*="text-decoration: underline"] {
     font-weight: bold; 
 }
+
+#tableContainer {
+    height: 70%; 
+    overflow-y: auto;  
+    overflow-x: hidden;
+    border: 1px solid black; 
+    margin-top: 10px;
+}
+
+#incomeTable, #costTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#incomeTable thead, #costTable thead{
+    position: sticky;
+    top: 0;
+    background-color: #222;
+    color: white;
+    z-index: 2;
+}
+

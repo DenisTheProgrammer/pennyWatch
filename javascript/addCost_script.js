@@ -25,13 +25,13 @@ function handleDetails()
         }
         else if(category === "")
         {
-            alert("Please confirm your password");
+            alert("Please enter a category");
             event.preventDefault();
         }
 
         else if(date === "")
         {
-            alert("Please enter a title");
+            alert("Please enter a date");
             event.preventDefault();
         }
 
