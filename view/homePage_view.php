@@ -8,7 +8,7 @@
     <body>
         <div class = "frontPage">
             <div id = "logo">
-                <p> <img src="../images/logo.png" class = "logo"></p>
+                <p> <img src="../images/newLogo.png" class = "logo"></p>
             </div>
 
             <div id = "slogan">

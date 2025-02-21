@@ -54,7 +54,7 @@ html, body {
 
 #filterForm .button {
     padding: 7px 15px;
-    background-color: #dc3545;
+    background-color: rgb(75, 6, 19);
     color: white;
     border: none;
     border-radius: 4px;
