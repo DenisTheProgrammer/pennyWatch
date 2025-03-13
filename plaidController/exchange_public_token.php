@@ -1,7 +1,11 @@
 <?php
 require_once "../model/dataAccess.php";
-require "../vendor/autoload.php";
+require __DIR__ . '/../vendor/autoload.php'; // Always finds the correct path
+
 session_start();
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..'); // Move up to the project root directory
+$dotenv->load();
 
 use GuzzleHttp\Client;
 
@@ -13,9 +17,9 @@ $publicToken = $input["publicToken"];
 $client = new Client();
 
 //plaid credentials
-$clientID = "67975cdf486f1b002290db46";
-$secret = "e328d8859e1c9311b92f82d3178c8d";
-$environment = "sandbox";
+$clientID = $_ENV['PLAID_CLIENT_ID'];
+$secret = $_ENV['PLAID_SECRET'];
+$environment = $_ENV['PLAID_ENV'];
 
 //API url for exchanging public token
 $url = "https://sandbox.plaid.com/item/public_token/exchange";

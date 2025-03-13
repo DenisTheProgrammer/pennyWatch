@@ -1,5 +1,8 @@
 <?php
-require "../vendor/autoload.php";
+require __DIR__ . '/../vendor/autoload.php'; // Always finds the correct path
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..'); // Move up to the project root directory
+$dotenv->load();
 
 use GuzzleHttp\Client;
 
@@ -7,9 +10,9 @@ use GuzzleHttp\Client;
 $client = new Client();
 
 //Plaid credentials
-$clientID = "67975cdf486f1b002290db46";
-$secret = "e328d8859e1c9311b92f82d3178c8d";
-$environment = "sandbox";
+$clientID = $_ENV['PLAID_CLIENT_ID'];
+$secret = $_ENV['PLAID_SECRET'];
+$environment = $_ENV['PLAID_ENV'];
 
 //URL to generate a link token
 $url = "https://sandbox.plaid.com/link/token/create";

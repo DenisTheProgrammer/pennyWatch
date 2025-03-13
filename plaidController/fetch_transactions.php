@@ -1,10 +1,13 @@
 <?php
-require "../vendor/autoload.php";
+require __DIR__ . '/../vendor/autoload.php'; // Always finds the correct path
 require_once "../model/dataAccess.php";
 require_once "../model/cost.php";
 require_once "../model/income.php";
 require_once "../model/customer.php";
 session_start();
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..'); // Move up to the project root directory
+$dotenv->load();
 
 use GuzzleHttp\Client;
 
@@ -16,9 +19,9 @@ $accessToken = $input["accessToken"];
 $client = new Client();
 
 //plaid credentials
-$clientID = "67975cdf486f1b002290db46";
-$secret = "e328d8859e1c9311b92f82d3178c8d";
-$environment = "sandbox";
+$clientID = $_ENV['PLAID_CLIENT_ID'];
+$secret = $_ENV['PLAID_SECRET'];
+$environment = $_ENV['PLAID_ENV'];
 
 //API URL for fetching transactions
 $url = "https://sandbox.plaid.com/transactions/get";

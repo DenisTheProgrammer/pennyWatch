@@ -1,9 +1,14 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php'; // __DIR__ makes sure the correct path is found no matter where this is ran from
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..'); // Move up to the project root directory
+$dotenv->load();
 
 //this is used to grant access to the database using a pdo
-$dbName = "pennywatch";
-$username = "root";
-$password = "coolDB24";
+$host = $_ENV['DB_HOST'];
+$dbName = $_ENV['DB_NAME'];
+$username = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASS'];
 
 $pdo = new PDO("mysql:host=localhost;dbname=$dbName",
                                           $username,
