@@ -18,15 +18,19 @@ else if(isset($_REQUEST["confirmDetails"]))
         $goal->recurring = 0;
         $goal->recurringInterval = 0;
         $goal->weeklyDay = 0;
+        $goal->recurringAmount = null;
+        $goal->monthlyDay = null;
     }
     else
     {
         $goal->recurring = 1;
         $goal->recurringInterval = $_REQUEST["recurringInterval"];
         $goal->weeklyDay = $_REQUEST["weeklyDay"];
+        $goal->recurringAmount = $_REQUEST["recurringAmount"];
+        trim($_REQUEST["monthlyDay"]) === "" ? $goal->monthlyDay = null : $goal->monthlyDay = $_REQUEST["monthlyDay"];
+        trim($_REQUEST["weeklyDay"]) === "" ? $goal->weeklyDay = null : $goal->weeklyDay = $_REQUEST["weeklyDay"];
     }
-    $goal->recurringAmount = $_REQUEST["recurringAmount"];
-    $goal->monthlyDay = $_REQUEST["monthlyDay"];
+    
     $goal->customerID = $_SESSION["customerDetails"][0]->customerID;
 
     addGoal($goal, $_SESSION["customerDetails"][0]->customerID);
